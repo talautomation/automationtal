@@ -289,7 +289,6 @@ public class ClaimIntake_page {
 		return element;
 	}
 
-	// Notifier
 	public static WebElement btn_SearchNotifier(WebDriver driver) {
 		Waitutil.waituntilvisible(driver,
 				"*[id^='SinglePartyCaseRoleWidget_partyCaseRole'][id$='_selectParty_rcbSearchButton_selectParty']");
@@ -299,14 +298,6 @@ public class ClaimIntake_page {
 		return element;
 	}
 
-	// public static WebElement btn_SearchNotifierRecurring(WebDriver driver){
-	// Waitutil.waituntilvisible(driver,
-	// "*[id^='SinglePartyCaseRoleWidget_partyCaseRoleWidget_'][id$='_selectParty_rcbSearchButton_selectParty']");
-	// element = driver.findElement(
-	// By.cssSelector("*[id^='SinglePartyCaseRoleWidget_partyCaseRoleWidget_'][id$='_selectParty_rcbSearchButton_selectParty']"));
-	// utility.Waitutil.implicitwait(driver);
-	// return element;
-	// }
 	public static WebElement txt_FirstName(WebDriver driver) {
 		Waitutil.waituntilclickabale(driver,
 				"*[id^='com.fineos.frontoffice.partymanager.partysearch.PersonOrganisationSearchSupportWidget_'][id$='_First_Name']");
@@ -332,24 +323,6 @@ public class ClaimIntake_page {
 		return element;
 	}
 
-	// public static WebElement sel_SelectTitleNotifierRecurring(WebDriver
-	// driver){
-	// Waitutil.waituntilvisible(driver,
-	// "*[id^='PersonalDetailsWidget_partyCaseRoleWidget_'][id$='_titleEnum']");
-	// element = driver.findElement(
-	// By.cssSelector("*[id^='PersonalDetailsWidget_partyCaseRoleWidget_'][id$='_titleEnum']"));
-	// utility.Waitutil.implicitwait(driver);
-	// return element;
-	// }
-	// public static WebElement sel_SelectGenderNotifierRecurring(WebDriver
-	// driver){
-	// Waitutil.waituntilvisible(driver,
-	// "*[id^='PersonalDetailsWidget_partyCaseRoleWidget_'][id$='_genderEnum']");
-	// element = driver.findElement(
-	// By.cssSelector("*[id^='PersonalDetailsWidget_partyCaseRoleWidget_'][id$='_genderEnum']"));
-	// utility.Waitutil.implicitwait(driver);
-	// return element;
-	// }
 	public static WebElement btn_Select(WebDriver driver) {
 		Waitutil.waituntilvisible(driver, "*[id^='p'][id$='_searchPageOk_cloned']");
 		element = driver.findElement(By.cssSelector("*[id^='p'][id$='_searchPageOk_cloned']"));

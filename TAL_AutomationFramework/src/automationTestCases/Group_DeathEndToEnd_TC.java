@@ -357,7 +357,6 @@ public class Group_DeathEndToEnd_TC {
 		Tab_LumpSumPayments_Benefit_page.txt_BasicAmountDistribution(chiefdriver).clear();
 		Tab_LumpSumPayments_Benefit_page.txt_BasicAmountDistribution(chiefdriver).sendKeys("20000");
 		Tab_LumpSumPayments_Benefit_page.tabout_OutstandingAmount(chiefdriver).click();
-		Thread.sleep(5000);
 		Tab_LumpSumPayments_Benefit_page.btn_SaveDue(chiefdriver).click();
 		chiefdriver.quit();
 

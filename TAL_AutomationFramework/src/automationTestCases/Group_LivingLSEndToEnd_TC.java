@@ -150,7 +150,7 @@ public class Group_LivingLSEndToEnd_TC {
 
 		Select type = new Select(ClaimIntake_page.sel_Type(chiefdriver));
 		type.selectByVisibleText("Living - Lump Sum");
-		ClaimIntake_page.chk_AreYouTalkingToInsured(chiefdriver).click();
+		// ClaimIntake_page.chk_AreYouTalkingToInsured(chiefdriver).click();
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 
 		Select InsuredTitle = new Select(ClaimIntake_page.sel_SelectTitle(chiefdriver));
@@ -255,6 +255,23 @@ public class Group_LivingLSEndToEnd_TC {
 		ClaimIntake_page.btn_QuickAddDiagnosisCode(chiefdriver).click();
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 
+		// Notifier Details Page
+		ClaimIntake_page.btn_SearchNotifier(chiefdriver).click();
+		// ClaimIntake_page.txt_FirstName(chiefdriver).sendKeys("A");
+		ClaimIntake_page.txt_LastName(chiefdriver).sendKeys("pe");
+		ClaimIntake_page.btn_Search(chiefdriver).click();
+		ClaimIntake_page.btn_Select(chiefdriver).click();
+		Select NotifierTitle = new Select(ClaimIntake_page.sel_SelectTitle(chiefdriver));
+		if ((NotifierTitle.getFirstSelectedOption().getText()).equals("Unknown")) {
+			NotifierTitle.selectByVisibleText("Madam");
+			Select NotifierGender = new Select(ClaimIntake_page.sel_SelectGender(chiefdriver));
+			NotifierGender.selectByVisibleText("Female");
+		}
+
+		Select relationship = new Select(ClaimIntake_page.sel_RelationshipToInsured(chiefdriver));
+		relationship.selectByValue("8");
+		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
+
 		// Adviser Details Page
 		ClaimIntake_page.btn_SearchNotifier(chiefdriver).click();
 		ClaimIntake_page.txt_FirstName(chiefdriver).sendKeys("A");
@@ -273,23 +290,6 @@ public class Group_LivingLSEndToEnd_TC {
 			AdviserprefContMet.selectByVisibleText("Phone");
 		}
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
-
-		// Notifier Details Page
-		// ClaimIntake_page.btn_SearchNotifier(chiefdriver).click();
-		// ClaimIntake_page.txt_FirstName(chiefdriver).sendKeys("A");
-		// ClaimIntake_page.txt_LastName(chiefdriver).sendKeys("pe");
-		// ClaimIntake_page.btn_Search(chiefdriver).click();
-		// ClaimIntake_page.btn_Select(chiefdriver).click();
-		// Select title = new Select
-		// (ClaimIntake_page.sel_SelectTitle(chiefdriver));
-		// title.selectByVisibleText("Mr");
-		// Select gender = new Select
-		// (ClaimIntake_page.sel_SelectGender(chiefdriver));
-		// gender.selectByVisibleText("Male");
-		// Select relationship = new Select
-		// (ClaimIntake_page.sel_RelationshipToInsured(chiefdriver));
-		// relationship.selectByValue("6");
-		// ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 
 		// Contact Details Page
 		ClaimIntake_page.chk_PrimaryContact(chiefdriver).click();
@@ -412,9 +412,7 @@ public class Group_LivingLSEndToEnd_TC {
 		Tab_LumpSumPayments_Benefit_page.txt_BasicAmountDistribution(chiefdriver).clear();
 		Tab_LumpSumPayments_Benefit_page.txt_BasicAmountDistribution(chiefdriver).sendKeys(SumInsured);
 		Tab_LumpSumPayments_Benefit_page.tabout_OutstandingAmount(chiefdriver).click();
-		Thread.sleep(4000);
 		Tab_LumpSumPayments_Benefit_page.btn_SaveDue(chiefdriver).click();
-		Thread.sleep(4000);
 		chiefdriver.quit();
 
 		// Login as SystemAdmin

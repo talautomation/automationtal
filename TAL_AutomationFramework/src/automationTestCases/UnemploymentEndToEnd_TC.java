@@ -88,8 +88,8 @@ public class UnemploymentEndToEnd_TC {
 
 	}
 
-	@Test(priority = 0)
-	public void UnemploymentEndtoEnd_LoginasChief() throws Exception {
+	@Test
+	public void Direct_UnemploymentEndtoEnd() throws Exception {
 		chiefdriver = Utils.openBrowser(iTestCaseRow, Constant.URL_CHIEF);
 		String sFirstName = ExcelUtils.getCellData(iTestCaseRow, Constant.Col_FirstName);
 		String sLastName = ExcelUtils.getCellData(iTestCaseRow, Constant.Col_LastName);
@@ -342,26 +342,24 @@ public class UnemploymentEndToEnd_TC {
 		periodStatus.selectByVisibleText("Approved");
 		PaymentsWizard_Benefit_page.btn_FinishPaymentSetUp(chiefdriver).click();
 		chiefdriver.quit();
-	}
 
-	// Login as GManager
-	// WebDriver gmanagerdriver = Utils.openBrowser(iTestCaseRow,
-	// Constant.gManagerURL);
-	// ClaimIntake_page.btn_CaseSearch_OpenCase(gmanagerdriver).click();
-	// ClaimIntake_page.tab_CaseSearch_Case(gmanagerdriver).click();
-	// ClaimIntake_page.txt_CaseSearch_CaseNumber(gmanagerdriver).sendKeys(BenefitNumber);
-	// ClaimIntake_page.btn_CaseSearch_Search(gmanagerdriver).click();
+		// Login as GManager
+		// WebDriver gmanagerdriver = Utils.openBrowser(iTestCaseRow,
+		// Constant.gManagerURL);
+		// ClaimIntake_page.btn_CaseSearch_OpenCase(gmanagerdriver).click();
+		// ClaimIntake_page.tab_CaseSearch_Case(gmanagerdriver).click();
+		// ClaimIntake_page.txt_CaseSearch_CaseNumber(gmanagerdriver).sendKeys(BenefitNumber);
+		// ClaimIntake_page.btn_CaseSearch_Search(gmanagerdriver).click();
 
-	// Approve the Pending Period
-	// Tab_Benefit_Benefit_page.subtab_Periods(gmanagerdriver).click();
-	// Tab_Benefit_Benefit_page.btn_EditCertificationPeriod(gmanagerdriver).click();
-	// Select periodStatus = new Select
-	// (Tab_Benefit_Benefit_page.sel_StatusActivityPeriod(gmanagerdriver));
-	// periodStatus.selectByVisibleText("Approved");
-	// Tab_Benefit_Benefit_page.btn_OKEditActivityPeriod(gmanagerdriver).click();
-	// gmanagerdriver.quit();
-	@Test(priority = 1)
-	public void UnemploymentEndtoEnd_LoginasSysAdmin() throws Exception {
+		// Approve the Pending Period
+		// Tab_Benefit_Benefit_page.subtab_Periods(gmanagerdriver).click();
+		// Tab_Benefit_Benefit_page.btn_EditCertificationPeriod(gmanagerdriver).click();
+		// Select periodStatus = new Select
+		// (Tab_Benefit_Benefit_page.sel_StatusActivityPeriod(gmanagerdriver));
+		// periodStatus.selectByVisibleText("Approved");
+		// Tab_Benefit_Benefit_page.btn_OKEditActivityPeriod(gmanagerdriver).click();
+		// gmanagerdriver.quit();
+
 		// Login as SystemAdmin
 		sysadmindriver = Utils.openBrowser(iTestCaseRow, Constant.URL_SYSADMIN);
 		ClaimIntake_page.btn_CaseSearch_OpenCase(sysadmindriver).click();

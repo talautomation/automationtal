@@ -94,8 +94,8 @@ public class Direct_DeathEndToEnd_TC {
 
 	}
 
-	@Test(priority = 0)
-	public void Death_LoginasChief() throws Exception {
+	@Test
+	public void Direct_DeathEndToEnd() throws Exception {
 		chiefdriver = Utils.openBrowser(iTestCaseRow, Constant.URL_CHIEF);
 		String sFirstName = ExcelUtils.getCellData(iTestCaseRow, Constant.Col_FirstName);
 		String sLastName = ExcelUtils.getCellData(iTestCaseRow, Constant.Col_LastName);
@@ -299,10 +299,7 @@ public class Direct_DeathEndToEnd_TC {
 		Tab_LumpSumPayments_Benefit_page.tabout_OutstandingAmount(chiefdriver).click();
 		Tab_LumpSumPayments_Benefit_page.btn_SaveDue(chiefdriver).click();
 		chiefdriver.quit();
-	}
 
-	@Test(priority = 1)
-	public void Death_LoginasSysAdmin() throws Exception {
 		// Login as SystemAdmin
 		sysadmindriver = Utils.openBrowser(iTestCaseRow, Constant.URL_SYSADMIN);
 		ClaimIntake_page.btn_CaseSearch_OpenCase(sysadmindriver).click();

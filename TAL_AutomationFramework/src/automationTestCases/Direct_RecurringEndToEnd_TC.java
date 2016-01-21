@@ -224,7 +224,7 @@ public class Direct_RecurringEndToEnd_TC {
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 
 		// Notifier Details Page
-		ClaimIntake_page.btn_SearchNotifier(chiefdriver).click();
+		ClaimIntake_page.btn_Search(chiefdriver).click();
 		// ClaimIntake_page.txt_FirstName(chiefdriver).sendKeys("A");
 		ClaimIntake_page.txt_LastName(chiefdriver).sendKeys("pe");
 		ClaimIntake_page.btn_Search(chiefdriver).click();
