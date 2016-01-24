@@ -30,10 +30,6 @@ import utility.ExcelUtils;
 import utility.Log;
 import utility.Utils;
 
-//testing of tesitng tesitng
-
-//testing of 123
-
 public class Continuation_TC {
 
 	public WebDriver chiefdriver;
