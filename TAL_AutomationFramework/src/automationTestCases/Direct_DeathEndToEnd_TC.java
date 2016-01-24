@@ -49,6 +49,7 @@ public class Direct_DeathEndToEnd_TC {
 	private String IncurredDateDay;
 	private String IncurredDateMonth;
 	private String IncurredDateYear;
+	private String ExecutionDate;
 
 	@BeforeSuite
 
@@ -197,9 +198,11 @@ public class Direct_DeathEndToEnd_TC {
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 
 		// Capture Claim Number
-		WebElement ElementClaimNumber = chiefdriver.findElement(By.xpath(".//*[@id='tab-1']/div[1]/h2/span"));
-		ClaimNumber = ElementClaimNumber.getText();
+		ClaimNumber = Claim_Benefit_page.txt_ClaimNumber(chiefdriver).getText();
 		System.out.println("Claim Number is: " + ClaimNumber);
+
+		ExecutionDate = Claim_Benefit_page.txt_CreationDate(chiefdriver).getText();
+		System.out.println("Execution Date is: " + ExecutionDate);
 
 		// Suppress Managed Requirements
 		Suppress_ManagedRequirement.SupressManagedRequirement(chiefdriver);
@@ -363,6 +366,7 @@ public class Direct_DeathEndToEnd_TC {
 		case ITestResult.SUCCESS:
 			ExcelUtils.setCellData("Pass", iTestCaseRow, Constant.Col_Result);
 			ExcelUtils.setCellData(ClaimNumber, iTestCaseRow, Constant.Col_claimNumber);
+			ExcelUtils.setCellData(ExecutionDate, iTestCaseRow, Constant.Col_ExecutionDate);
 			break;
 		case ITestResult.FAILURE:
 			if (ClaimNumber != "") {

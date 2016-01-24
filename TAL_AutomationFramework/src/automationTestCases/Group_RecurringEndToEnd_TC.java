@@ -51,6 +51,7 @@ public class Group_RecurringEndToEnd_TC {
 	private String AccidentDateDay;
 	private String AccidentDateMonth;
 	private String AccidentDateYear;
+	private String ExecutionDate;
 
 	@BeforeSuite
 
@@ -223,7 +224,7 @@ public class Group_RecurringEndToEnd_TC {
 
 		// Occupation Details Page
 		ClaimIntake_page.btn_SearchEmployer(chiefdriver).click();
-		ClaimIntake_page.txt_EmployerAsOrganisation(chiefdriver).sendKeys("C");
+		ClaimIntake_page.txt_Organisation(chiefdriver).sendKeys("C");
 		ClaimIntake_page.btn_Search(chiefdriver).click();
 		ClaimIntake_page.btn_Select(chiefdriver).click();
 		Select occupation = new Select(ClaimIntake_page.sel_Occupation(chiefdriver));
@@ -297,9 +298,11 @@ public class Group_RecurringEndToEnd_TC {
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 
 		// Capture Claim Number
-		WebElement ElementClaimNumber = chiefdriver.findElement(By.xpath(".//*[@id='tab-1']/div[1]/h2/span"));
-		ClaimNumber = ElementClaimNumber.getText();
+		ClaimNumber = Claim_Benefit_page.txt_ClaimNumber(chiefdriver).getText();
 		System.out.println("Claim Number is: " + ClaimNumber);
+
+		ExecutionDate = Claim_Benefit_page.txt_CreationDate(chiefdriver).getText();
+		System.out.println("Execution Date is: " + ExecutionDate);
 
 		// Send Claim Number to Excel
 		// ExcelUtils.setCellData(ClaimNumber, iTestCaseRow,
@@ -515,6 +518,7 @@ public class Group_RecurringEndToEnd_TC {
 		case ITestResult.SUCCESS:
 			ExcelUtils.setCellData("Pass", iTestCaseRow, Constant.Col_Result);
 			ExcelUtils.setCellData(ClaimNumber, iTestCaseRow, Constant.Col_claimNumber);
+			ExcelUtils.setCellData(ExecutionDate, iTestCaseRow, Constant.Col_ExecutionDate);
 			break;
 		case ITestResult.FAILURE:
 			if (ClaimNumber != "") {

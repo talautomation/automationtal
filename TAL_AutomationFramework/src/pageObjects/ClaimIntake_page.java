@@ -168,7 +168,7 @@ public class ClaimIntake_page {
 		return element;
 	}
 
-	public static WebElement txt_EmployerAsOrganisation(WebDriver driver) {
+	public static WebElement txt_Organisation(WebDriver driver) {
 		Waitutil.waituntilclickabale(driver,
 				"*[id^='com.fineos.frontoffice.partymanager.partysearch.PersonOrganisationSearchSupportWidget_claimant_'][id$='_Name']");
 		element = driver.findElement(By.cssSelector(

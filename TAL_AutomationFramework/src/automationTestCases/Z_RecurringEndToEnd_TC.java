@@ -16,9 +16,24 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-import appModule.*;
-import pageObjects.*;
-import utility.*;
+import appModule.Closing_AllElements;
+import appModule.Closing_Right_Task;
+import appModule.FindRightElement;
+import appModule.Selecting_RightElement;
+import appModule.Suppress_ManagedRequirement;
+import pageObjects.ClaimIntake_page;
+import pageObjects.Claim_Benefit_page;
+import pageObjects.PaymentsWizard_Benefit_page;
+import pageObjects.Tab_Coverages_page;
+import pageObjects.Tab_Occupations_Claim_page;
+import pageObjects.Tab_PaymentHistory_Benefit_page;
+import pageObjects.Tab_RecurringPayments_Benefit_page;
+import pageObjects.Tab_Tasks_Benefit_page;
+import pageObjects.Tab_Tasks_Claim_page;
+import utility.Constant;
+import utility.ExcelUtils;
+import utility.Log;
+import utility.Utils;
 
 public class Z_RecurringEndToEnd_TC {
 
@@ -162,7 +177,7 @@ public class Z_RecurringEndToEnd_TC {
 		// Occupation Details Page
 
 		ClaimIntake_page.btn_SearchEmployer(cmanagerdriver).click();
-		ClaimIntake_page.txt_EmployerAsOrganisation(cmanagerdriver).sendKeys("C");
+		ClaimIntake_page.txt_Organisation(cmanagerdriver).sendKeys("C");
 		ClaimIntake_page.btn_Search(cmanagerdriver).click();
 		ClaimIntake_page.btn_Select(cmanagerdriver).click();
 		Select occupation = new Select(ClaimIntake_page.sel_Occupation(cmanagerdriver));

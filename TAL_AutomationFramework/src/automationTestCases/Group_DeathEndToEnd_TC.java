@@ -46,6 +46,7 @@ public class Group_DeathEndToEnd_TC {
 	private String IncurredDateDay;
 	private String IncurredDateMonth;
 	private String IncurredDateYear;
+	private String ExecutionDate;
 
 	@BeforeSuite
 
@@ -258,6 +259,9 @@ public class Group_DeathEndToEnd_TC {
 		ClaimNumber = ElementClaimNumber.getText();
 		System.out.println("Claim Number is: " + ClaimNumber);
 
+		ExecutionDate = Claim_Benefit_page.txt_CreationDate(chiefdriver).getText();
+		System.out.println("Execution Date is: " + ExecutionDate);
+
 		// Suppress Managed Requirements
 		// Suppress_ManagedRequirement.SupressManagedRequirement(cmanagerdriver);
 
@@ -423,6 +427,7 @@ public class Group_DeathEndToEnd_TC {
 		case ITestResult.SUCCESS:
 			ExcelUtils.setCellData("Pass", iTestCaseRow, Constant.Col_Result);
 			ExcelUtils.setCellData(ClaimNumber, iTestCaseRow, Constant.Col_claimNumber);
+			ExcelUtils.setCellData(ExecutionDate, iTestCaseRow, Constant.Col_ExecutionDate);
 			break;
 		case ITestResult.FAILURE:
 			if (ClaimNumber != "") {

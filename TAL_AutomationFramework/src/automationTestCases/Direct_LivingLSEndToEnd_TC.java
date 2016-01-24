@@ -1,5 +1,4 @@
 package automationTestCases;
-//testing of git123
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -51,6 +50,7 @@ public class Direct_LivingLSEndToEnd_TC {
 	private String AccidentDateMonth;
 	private String AccidentDateYear;
 	private String SumInsured;
+	private String ExecutionDate;
 
 	@BeforeSuite
 
@@ -236,9 +236,11 @@ public class Direct_LivingLSEndToEnd_TC {
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 
 		// Capture Claim Number
-		WebElement ElementClaimNumber = chiefdriver.findElement(By.xpath(".//*[@id='tab-1']/div[1]/h2/span"));
-		ClaimNumber = ElementClaimNumber.getText();
+		ClaimNumber = Claim_Benefit_page.txt_ClaimNumber(chiefdriver).getText();
 		System.out.println("Claim Number is: " + ClaimNumber);
+
+		ExecutionDate = Claim_Benefit_page.txt_CreationDate(chiefdriver).getText();
+		System.out.println("Execution Date is: " + ExecutionDate);
 
 		// Suppress Managed Requirements
 		Suppress_ManagedRequirement.SupressManagedRequirement(chiefdriver);
@@ -336,9 +338,9 @@ public class Direct_LivingLSEndToEnd_TC {
 		description.selectByValue("1");
 		Tab_LumpSumPayments_Benefit_page.txt_BasicPayeeAmount(chiefdriver).clear();
 		// Enter Basic Payee Amount
-		Tab_LumpSumPayments_Benefit_page.txt_BasicPayeeAmount(chiefdriver).sendKeys("20000");
+		Tab_LumpSumPayments_Benefit_page.txt_BasicPayeeAmount(chiefdriver).sendKeys(SumInsured);
 		Tab_LumpSumPayments_Benefit_page.txt_BasicAmountDistribution(chiefdriver).clear();
-		Tab_LumpSumPayments_Benefit_page.txt_BasicAmountDistribution(chiefdriver).sendKeys("20000");
+		Tab_LumpSumPayments_Benefit_page.txt_BasicAmountDistribution(chiefdriver).sendKeys(SumInsured);
 		Tab_LumpSumPayments_Benefit_page.tabout_OutstandingAmount(chiefdriver).click();
 		Tab_LumpSumPayments_Benefit_page.btn_SaveDue(chiefdriver).click();
 
@@ -407,6 +409,7 @@ public class Direct_LivingLSEndToEnd_TC {
 		case ITestResult.SUCCESS:
 			ExcelUtils.setCellData("Pass", iTestCaseRow, Constant.Col_Result);
 			ExcelUtils.setCellData(ClaimNumber, iTestCaseRow, Constant.Col_claimNumber);
+			ExcelUtils.setCellData(ExecutionDate, iTestCaseRow, Constant.Col_ExecutionDate);
 			break;
 		case ITestResult.FAILURE:
 			if (ClaimNumber != "") {

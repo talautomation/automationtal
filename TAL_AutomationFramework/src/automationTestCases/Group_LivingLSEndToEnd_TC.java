@@ -47,6 +47,7 @@ public class Group_LivingLSEndToEnd_TC {
 	private String AccidentDateMonth;
 	private String AccidentDateYear;
 	private String SumInsured = "12345";
+	private String ExecutionDate;
 
 	@BeforeSuite
 
@@ -230,7 +231,7 @@ public class Group_LivingLSEndToEnd_TC {
 
 		// Occupation Details Page
 		ClaimIntake_page.btn_SearchEmployer(chiefdriver).click();
-		ClaimIntake_page.txt_EmployerAsOrganisation(chiefdriver).sendKeys("C");
+		ClaimIntake_page.txt_Organisation(chiefdriver).sendKeys("C");
 		ClaimIntake_page.btn_Search(chiefdriver).click();
 		ClaimIntake_page.btn_Select(chiefdriver).click();
 		Select occupation = new Select(ClaimIntake_page.sel_Occupation(chiefdriver));
@@ -297,30 +298,14 @@ public class Group_LivingLSEndToEnd_TC {
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 
 		// Capture Claim Number
-		WebElement ElementClaimNumber = chiefdriver.findElement(By.xpath(".//*[@id='tab-1']/div[1]/h2/span"));
-		ClaimNumber = ElementClaimNumber.getText();
+		ClaimNumber = Claim_Benefit_page.txt_ClaimNumber(chiefdriver).getText();
 		System.out.println("Claim Number is: " + ClaimNumber);
 
-		// Send Claim Number to Excel
-		// ExcelUtils.setCellData(ClaimNumber, iTestCaseRow,
-		// Constant.Col_claimNumber);
+		ExecutionDate = Claim_Benefit_page.txt_CreationDate(chiefdriver).getText();
+		System.out.println("Execution Date is: " + ExecutionDate);
 
 		// Suppress Managed Requirements
-		// Suppress_ManagedRequirement.SupressManagedRequirement(cmanagerdriver);
-
-		// Enter PDI Information
-		// Tab_Occupations_Claim_page.btn_OccupationTab(chiefdriver).click();
-		// Select PDI = new
-		// Select(Tab_Occupations_Claim_page.sel_SelectPDI(chiefdriver));
-		// PDI.selectByVisibleText("PDI");
-		// Thread.sleep(4000);
-		// Select PDIEarningBasis = new
-		// Select(ClaimIntake_page.sel_EarningBasis(chiefdriver));
-		// PDIEarningBasis.selectByValue("2");
-		// Thread.sleep(4000);
-		// ClaimIntake_page.txt_EarningsAmount(chiefdriver).clear();
-		// ClaimIntake_page.txt_EarningsAmount(chiefdriver).sendKeys("5000");
-		// ClaimIntake_page.btn_QuickAddEarnings(chiefdriver).click();
+		// Suppress_ManagedRequirement.SupressManagedRequirement(chiefdriver);
 
 		// Tasks Tab
 		Tab_Tasks_Claim_page.tab_task(chiefdriver).click();
@@ -478,6 +463,7 @@ public class Group_LivingLSEndToEnd_TC {
 		case ITestResult.SUCCESS:
 			ExcelUtils.setCellData("Pass", iTestCaseRow, Constant.Col_Result);
 			ExcelUtils.setCellData(ClaimNumber, iTestCaseRow, Constant.Col_claimNumber);
+			ExcelUtils.setCellData(ExecutionDate, iTestCaseRow, Constant.Col_ExecutionDate);
 			break;
 		case ITestResult.FAILURE:
 			if (ClaimNumber != "") {

@@ -149,4 +149,11 @@ public class Tab_LumpSumPayments_Benefit_page {
 		utility.Waitutil.implicitwait(driver);
 		return element;
 	}
+
+	public static WebElement btn_EditPaymentAmount(WebDriver driver) {
+		Waitutil.waituntilvisible(driver, "*[id^='Adhoc_Dues_'][id$='_listviewBean_cmdEdit']");
+		element = driver.findElement(By.cssSelector("*[id^='Adhoc_Dues_'][id$='_listviewBean_cmdEdit']"));
+		utility.Waitutil.implicitwait(driver);
+		return element;
+	}
 }
