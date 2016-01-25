@@ -25,4 +25,27 @@ public class Tab_Expenses_Benefit_page {
 		utility.Waitutil.implicitwait(driver);
 		return element;
 	}
+
+	public static WebElement subtab_ExpensePayments(WebDriver driver) {
+		Waitutil.waituntilclickabale(driver,
+				"*[id^='ExpenseListviewWidget_'][id$='_FINEOS.Provider.Approvals.MultipleExpenseApprovalsTab.Death_Benefit_Dues_cell']");
+		element = driver.findElement(By.cssSelector(
+				"*[id^='ExpenseListviewWidget_'][id$='_FINEOS.Provider.Approvals.MultipleExpenseApprovalsTab.Death_Benefit_Dues_cell']"));
+		utility.Waitutil.implicitwait(driver);
+		return element;
+	}
+
+	public static WebElement btn_ExpenseApproveRecover(WebDriver driver) {
+		Waitutil.waituntilclickabale(driver, "*[id^='Expense_Dues_'][id$='_ApproveRecover']");
+		element = driver.findElement(By.cssSelector("*[id^='Expense_Dues_'][id$='_ApproveRecover']"));
+		utility.Waitutil.implicitwait(driver);
+		return element;
+	}
+
+	public static WebElement btn_ExpenseGeneratePayments(WebDriver driver) {
+		Waitutil.waituntilclickabale(driver, "*[id^='Expense_Dues_'][id$='_Generate_Payments']");
+		element = driver.findElement(By.cssSelector("*[id^='Expense_Dues_'][id$='_Generate_Payments']"));
+		utility.Waitutil.implicitwait(driver);
+		return element;
+	}
 }

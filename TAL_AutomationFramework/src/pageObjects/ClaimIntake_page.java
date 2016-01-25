@@ -170,9 +170,9 @@ public class ClaimIntake_page {
 
 	public static WebElement txt_Organisation(WebDriver driver) {
 		Waitutil.waituntilclickabale(driver,
-				"*[id^='com.fineos.frontoffice.partymanager.partysearch.PersonOrganisationSearchSupportWidget_claimant_'][id$='_Name']");
+				"*[id^='com.fineos.frontoffice.partymanager.partysearch.PersonOrganisationSearchSupportWidget_'][id$='_Name']");
 		element = driver.findElement(By.cssSelector(
-				"*[id^='com.fineos.frontoffice.partymanager.partysearch.PersonOrganisationSearchSupportWidget_claimant_'][id$='_Name']"));
+				"*[id^='com.fineos.frontoffice.partymanager.partysearch.PersonOrganisationSearchSupportWidget_'][id$='_Name']"));
 		utility.Waitutil.implicitwait(driver);
 		return element;
 	}

@@ -24,6 +24,7 @@ public class Constant {
 
 	public static String Path_TestData = "";
 	public static String File_TestData = "";
+	public static String Path_Screenshots = "";
 
 	public static final int Col_TestCaseName = 0;
 	public static final int Col_Browser = 1;

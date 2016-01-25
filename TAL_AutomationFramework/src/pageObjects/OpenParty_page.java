@@ -18,10 +18,18 @@ public class OpenParty_page {
 		return element;
 	}
 
+	public static WebElement tab_Provider(WebDriver driver) {
+		Waitutil.waituntilclickabale(driver,
+				"*[id^='tdw1_'][id$='_FINEOS.PartyManager.PartySearchPage_provider_cell']");
+		element = driver.findElement(
+				By.cssSelector("*[id^='tdw1_'][id$='_FINEOS.PartyManager.PartySearchPage_provider_cell']"));
+		utility.Waitutil.implicitwait(driver);
+		return element;
+	}
+
 	public static WebElement btn_Organisation(WebDriver driver) {
-		Waitutil.waituntilclickabale(driver, "*[id^='DynamicPartySearchWidget_claimant_'][id$='_Organisation_GROUP']");
-		element = driver
-				.findElement(By.cssSelector("*[id^='DynamicPartySearchWidget_claimant_'][id$='_Organisation_GROUP']"));
+		Waitutil.waituntilclickabale(driver, "*[id^='DynamicPartySearchWidget_'][id$='_Organisation_GROUP']");
+		element = driver.findElement(By.cssSelector("*[id^='DynamicPartySearchWidget_'][id$='_Organisation_GROUP']"));
 		utility.Waitutil.implicitwait(driver);
 		return element;
 	}

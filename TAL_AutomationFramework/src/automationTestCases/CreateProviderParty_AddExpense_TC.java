@@ -15,16 +15,18 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
+import pageObjects.AddExpense_page;
 import pageObjects.ClaimIntake_page;
 import pageObjects.Claim_Benefit_page;
 import pageObjects.OpenParty_page;
 import pageObjects.Tab_Expenses_Benefit_page;
+import pageObjects.Tab_PaymentHistory_Benefit_page;
 import utility.Constant;
 import utility.ExcelUtils;
 import utility.Log;
 import utility.Utils;
 
-public class CreateProviderParty_TC {
+public class CreateProviderParty_AddExpense_TC {
 
 	public WebDriver chiefdriver;
 	public WebDriver procofficerdriver;
@@ -33,6 +35,7 @@ public class CreateProviderParty_TC {
 	private int iTestCaseRow;
 	private String ExecutionDate;
 	private String BenefitNumber;
+	private String ProviderName = "Test10 Fineos Test";
 
 	@BeforeSuite
 
@@ -65,6 +68,9 @@ public class CreateProviderParty_TC {
 		Constant.File_TestData = filename;
 		Constant.Path_TestData = path;
 
+		String screenshotpath = props.getProperty("SCREENSHOTPATH");
+		Constant.Path_Screenshots = screenshotpath;
+
 	}
 
 	@BeforeMethod
@@ -80,7 +86,7 @@ public class CreateProviderParty_TC {
 
 		// Removing the test case status and errors from previous test results
 		// if any
-		ExcelUtils.setCellData("", iTestCaseRow, Constant.Col_claimNumber);
+		// ExcelUtils.setCellData("", iTestCaseRow, Constant.Col_claimNumber);
 		ExcelUtils.setCellData("", iTestCaseRow, Constant.Col_Result);
 		ExcelUtils.setCellData("", iTestCaseRow, Constant.Col_Errors);
 
@@ -88,10 +94,11 @@ public class CreateProviderParty_TC {
 
 	@Test
 	public void Direct_LivingLSEndtoEnd() throws Exception {
+		BenefitNumber = ExcelUtils.getCellData(iTestCaseRow, Constant.Col_claimNumber);
 		procofficerdriver = Utils.openBrowser(iTestCaseRow, Constant.URL_PROCOFFICER);
 		OpenParty_page.btn_OpenParty(procofficerdriver).click();
 		OpenParty_page.btn_Organisation(procofficerdriver).click();
-		ClaimIntake_page.txt_Organisation(procofficerdriver).sendKeys("Fineos Test Organisation2");
+		ClaimIntake_page.txt_Organisation(procofficerdriver).sendKeys(ProviderName);
 		ClaimIntake_page.btn_Search(procofficerdriver).click();
 		OpenParty_page.btn_Add(procofficerdriver).click();
 		Select partition = new Select(ClaimIntake_page.sel_Partitions(procofficerdriver));
@@ -128,19 +135,52 @@ public class CreateProviderParty_TC {
 		OpenParty_page.btn_OkPartyRoleType(procofficerdriver).click();
 		Claim_Benefit_page.btn_Ok(procofficerdriver).click();
 		ExecutionDate = appModule.CurrentDateTimeStamp.getCurrentTimeStamp();
+
+		// Open Claim and Navigate to Expenses Tab
+		ClaimIntake_page.btn_CaseSearch_OpenCase(procofficerdriver).click();
+		ClaimIntake_page.tab_CaseSearch_Case(procofficerdriver).click();
+		ClaimIntake_page.txt_CaseSearch_CaseNumber(procofficerdriver).sendKeys(BenefitNumber);
+		ClaimIntake_page.btn_CaseSearch_Search(procofficerdriver).click();
+		Tab_Expenses_Benefit_page.tab_Expenses(procofficerdriver).click();
+		Tab_Expenses_Benefit_page.btn_AddExpense(procofficerdriver).click();
+		AddExpense_page.txt_InvoiceNumber(procofficerdriver).sendKeys("12345");
+		AddExpense_page.btn_SearchPayee(procofficerdriver).click();
+		OpenParty_page.tab_Provider(procofficerdriver).click();
+		OpenParty_page.btn_Organisation(procofficerdriver).click();
+		ClaimIntake_page.txt_Organisation(procofficerdriver).sendKeys(ProviderName);
+		ClaimIntake_page.btn_Search(procofficerdriver).click();
+		ClaimIntake_page.btn_Select(procofficerdriver).click();
+		AddExpense_page.btn_SearchLineItemCode(procofficerdriver).click();
+		AddExpense_page.txt_ExpenseCode(procofficerdriver).sendKeys("LEGAL");
+		AddExpense_page.btn_SearchExpenseCode(procofficerdriver).click();
+		AddExpense_page.btn_SelectService(procofficerdriver).click();
+		AddExpense_page.txt_InvoiceStartDate_Day(procofficerdriver).sendKeys("20");
+		Select InvoiceStartDateMonth = new Select(AddExpense_page.txt_InvoiceStartDate_Month(procofficerdriver));
+		InvoiceStartDateMonth.selectByVisibleText("JAN");
+		AddExpense_page.txt_InvoiceStartDate_Year(procofficerdriver).sendKeys("2016");
+
+		AddExpense_page.txt_InvoiceCost(procofficerdriver).clear();
+		AddExpense_page.txt_InvoiceCost(procofficerdriver).sendKeys("4000");
+		AddExpense_page.btn_QuickAddInvoice(procofficerdriver).click();
+		Thread.sleep(3000);
+		Claim_Benefit_page.btn_Ok(procofficerdriver).click();
+		Thread.sleep(10000);
 		procofficerdriver.quit();
 
 		chiefdriver = Utils.openBrowser(iTestCaseRow, Constant.URL_CHIEF);
-		BenefitNumber = ExcelUtils.getCellData(iTestCaseRow, Constant.Col_claimNumber);
 		System.out.println(BenefitNumber);
 		ClaimIntake_page.btn_CaseSearch_OpenCase(chiefdriver).click();
 		ClaimIntake_page.tab_CaseSearch_Case(chiefdriver).click();
 		ClaimIntake_page.txt_CaseSearch_CaseNumber(chiefdriver).sendKeys(BenefitNumber);
 		ClaimIntake_page.btn_CaseSearch_Search(chiefdriver).click();
-
-		// Open Claim and Navigate to Expenses Tab
 		Tab_Expenses_Benefit_page.tab_Expenses(chiefdriver).click();
-		Tab_Expenses_Benefit_page.btn_AddExpense(chiefdriver).click();
+		Tab_Expenses_Benefit_page.subtab_ExpensePayments(chiefdriver).click();
+		Tab_Expenses_Benefit_page.btn_ExpenseApproveRecover(chiefdriver).click();
+		Tab_Expenses_Benefit_page.btn_ExpenseGeneratePayments(chiefdriver).click();
+		Claim_Benefit_page.btn_Ok(chiefdriver).click();
+		Tab_PaymentHistory_Benefit_page.tab_PaymentHistory(chiefdriver).click();
+		Tab_PaymentHistory_Benefit_page.btn_ProcessPayment(chiefdriver).click();
+		Claim_Benefit_page.btn_Ok(chiefdriver).click();
 
 	}
 
@@ -155,12 +195,15 @@ public class CreateProviderParty_TC {
 		case ITestResult.SUCCESS:
 			ExcelUtils.setCellData("Pass", iTestCaseRow, Constant.Col_Result);
 			ExcelUtils.setCellData(ExecutionDate, iTestCaseRow, Constant.Col_ExecutionDate);
+			Utils.captureScreenshot(chiefdriver, sTestCaseName, Constant.Path_Screenshots, "Pass");
 			break;
 		case ITestResult.FAILURE:
 			ExcelUtils.setCellData("Fail", iTestCaseRow, Constant.Col_Result);
+			Utils.captureScreenshot(chiefdriver, sTestCaseName, Constant.Path_Screenshots, "Fail");
 			break;
 		case ITestResult.SKIP:
 			ExcelUtils.setCellData("Skip", iTestCaseRow, Constant.Col_Result);
+			Utils.captureScreenshot(chiefdriver, sTestCaseName, Constant.Path_Screenshots, "Skip");
 			break;
 		default:
 			throw new RuntimeException("Invalid status");
