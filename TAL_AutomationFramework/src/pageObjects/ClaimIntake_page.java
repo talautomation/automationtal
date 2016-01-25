@@ -475,4 +475,20 @@ public class ClaimIntake_page {
 		return element;
 	}
 
+	public static WebElement tbl_SpanRight(WebDriver driver) {
+		Waitutil.waituntilclickabale(driver, "*[id^='PersonSearchResults_'][id$='_PersonSearchResults_listNavRight']");
+		element = driver
+				.findElement(By.cssSelector("*[id^='PersonSearchResults_'][id$='_PersonSearchResults_listNavRight']"));
+		utility.Waitutil.implicitwait(driver);
+		return element;
+	}
+
+	public static WebElement tbl_Play_NextButton(WebDriver driver) {
+		Waitutil.waituntilclickabale(driver, "*[id^='PersonSearchResults_'][id$='_PersonSearchResults_cmdNext']");
+		element = driver
+				.findElement(By.cssSelector("*[id^='PersonSearchResults_'][id$='_PersonSearchResults_cmdNext']"));
+		utility.Waitutil.implicitwait(driver);
+		return element;
+	}
+
 }

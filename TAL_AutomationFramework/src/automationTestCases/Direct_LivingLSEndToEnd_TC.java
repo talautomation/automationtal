@@ -127,9 +127,16 @@ public class Direct_LivingLSEndToEnd_TC {
 		ClaimIntake_page.txt_CaseSearch_LastName(chiefdriver).sendKeys(sLastName);
 		ClaimIntake_page.btn_CaseSearch_PersonSearchPolicy(chiefdriver).click();
 
-		List<WebElement> allPersons = ClaimIntake_page.tbl_PersonSearchResults(chiefdriver)
-				.findElements(By.cssSelector("tbody > tr"));
-		Selecting_RightElement.Select(chiefdriver, sGroupId, allPersons, 3);
+		List<WebElement> numberofPages = ClaimIntake_page.tbl_SpanRight(chiefdriver).findElements(By.tagName("span"));
+		System.out.println("Number of pages:-" + numberofPages.size());
+		FindRightElement.SelectingRightPersonResults_MultiplePages(chiefdriver, sGroupId, numberofPages, 3);
+
+		/*
+		 * List<WebElement> allPersons =
+		 * ClaimIntake_page.tbl_PersonSearchResults(chiefdriver)
+		 * .findElements(By.cssSelector("tbody > tr"));
+		 * Selecting_RightElement.Select(chiefdriver, sGroupId, allPersons, 3);
+		 */
 
 		List<WebElement> allProducts = ClaimIntake_page.tbl_ListofPolicies(chiefdriver)
 				.findElements(By.cssSelector("tbody > tr"));

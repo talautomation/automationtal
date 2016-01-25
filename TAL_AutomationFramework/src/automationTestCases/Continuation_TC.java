@@ -6,18 +6,14 @@ import java.util.Properties;
 
 import org.apache.log4j.xml.DOMConfigurator;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-import pageObjects.AddExpense_page;
 //import pageObjects.Tab_ManagedRequirements_Claim_page;
 import pageObjects.ClaimIntake_page;
-import pageObjects.Claim_Benefit_page;
-import pageObjects.OpenParty_page;
 import pageObjects.Tab_Expenses_Benefit_page;
 import utility.Constant;
 import utility.ExcelUtils;
@@ -60,6 +56,9 @@ public class Continuation_TC {
 		Constant.File_TestData = filename;
 		Constant.Path_TestData = path;
 
+		String screenshotpath = props.getProperty("SCREENSHOTPATH");
+		Constant.Path_Screenshots = screenshotpath;
+
 	}
 
 	@BeforeMethod
@@ -84,35 +83,41 @@ public class Continuation_TC {
 
 	@Test
 	public void Continuation() throws Exception {
-		String BenefitNumber = "200017-01";
+		String BenefitNumber = "";
 		ClaimIntake_page.btn_CaseSearch_OpenCase(chiefdriver).click();
 		ClaimIntake_page.tab_CaseSearch_Case(chiefdriver).click();
 		ClaimIntake_page.txt_CaseSearch_CaseNumber(chiefdriver).sendKeys(BenefitNumber);
 		ClaimIntake_page.btn_CaseSearch_Search(chiefdriver).click();
-		// Open Claim and Navigate to Expenses Tab
 		Tab_Expenses_Benefit_page.tab_Expenses(chiefdriver).click();
-		Tab_Expenses_Benefit_page.btn_AddExpense(chiefdriver).click();
-		AddExpense_page.txt_InvoiceNumber(chiefdriver).sendKeys("12345");
-		AddExpense_page.btn_SearchPayee(chiefdriver).click();
-		OpenParty_page.tab_Provider(chiefdriver).click();
-		OpenParty_page.btn_Organisation(chiefdriver).click();
-		ClaimIntake_page.txt_Organisation(chiefdriver).sendKeys("Fineos");
-		ClaimIntake_page.btn_Search(chiefdriver).click();
-		ClaimIntake_page.btn_Select(chiefdriver).click();
-		AddExpense_page.btn_SearchLineItemCode(chiefdriver).click();
-		AddExpense_page.txt_ExpenseCode(chiefdriver).sendKeys("LEGAL");
-		AddExpense_page.btn_SearchExpenseCode(chiefdriver).click();
-		AddExpense_page.btn_SelectService(chiefdriver).click();
-		AddExpense_page.txt_InvoiceStartDate_Day(chiefdriver).sendKeys("20");
-		Select InvoiceStartDateMonth = new Select(AddExpense_page.txt_InvoiceStartDate_Month(chiefdriver));
-		InvoiceStartDateMonth.selectByVisibleText("JAN");
-		AddExpense_page.txt_InvoiceStartDate_Year(chiefdriver).sendKeys("2016");
 
-		AddExpense_page.txt_InvoiceCost(chiefdriver).clear();
-		AddExpense_page.txt_InvoiceCost(chiefdriver).sendKeys("4000");
-		AddExpense_page.btn_QuickAddInvoice(chiefdriver).click();
-		Claim_Benefit_page.btn_Ok(chiefdriver).click();
-
+		/*
+		 * ClaimIntake_page.btn_CaseSearch_Search(chiefdriver).click(); // Open
+		 * Claim and Navigate to Expenses Tab
+		 * Tab_Expenses_Benefit_page.tab_Expenses(chiefdriver).click();
+		 * Tab_Expenses_Benefit_page.btn_AddExpense(chiefdriver).click();
+		 * AddExpense_page.txt_InvoiceNumber(chiefdriver).sendKeys("12345");
+		 * AddExpense_page.btn_SearchPayee(chiefdriver).click();
+		 * OpenParty_page.tab_Provider(chiefdriver).click();
+		 * OpenParty_page.btn_Organisation(chiefdriver).click();
+		 * ClaimIntake_page.txt_Organisation(chiefdriver).sendKeys("Fineos");
+		 * ClaimIntake_page.btn_Search(chiefdriver).click();
+		 * ClaimIntake_page.btn_Select(chiefdriver).click();
+		 * AddExpense_page.btn_SearchLineItemCode(chiefdriver).click();
+		 * AddExpense_page.txt_ExpenseCode(chiefdriver).sendKeys("LEGAL");
+		 * AddExpense_page.btn_SearchExpenseCode(chiefdriver).click();
+		 * AddExpense_page.btn_SelectService(chiefdriver).click();
+		 * AddExpense_page.txt_InvoiceStartDate_Day(chiefdriver).sendKeys("20");
+		 * Select InvoiceStartDateMonth = new
+		 * Select(AddExpense_page.txt_InvoiceStartDate_Month(chiefdriver));
+		 * InvoiceStartDateMonth.selectByVisibleText("JAN");
+		 * AddExpense_page.txt_InvoiceStartDate_Year(chiefdriver).sendKeys(
+		 * "2016");
+		 * 
+		 * AddExpense_page.txt_InvoiceCost(chiefdriver).clear();
+		 * AddExpense_page.txt_InvoiceCost(chiefdriver).sendKeys("4000");
+		 * AddExpense_page.btn_QuickAddInvoice(chiefdriver).click();
+		 * Claim_Benefit_page.btn_Ok(chiefdriver).click();
+		 */
 	}
 
 	@AfterMethod
@@ -126,14 +131,17 @@ public class Continuation_TC {
 		case ITestResult.SUCCESS:
 			ExcelUtils.setCellData("Pass", iTestCaseRow, Constant.Col_Result);
 			ExcelUtils.setCellData(ClaimNumber, iTestCaseRow, Constant.Col_claimNumber);
+			Utils.captureScreenshot(chiefdriver, sTestCaseName, Constant.Path_Screenshots, "Pass");
 			break;
 		case ITestResult.FAILURE:
 			if (ClaimNumber != "") {
 				ExcelUtils.setCellData("Fail", iTestCaseRow, Constant.Col_Result);
 			}
+			Utils.captureScreenshot(chiefdriver, sTestCaseName, Constant.Path_Screenshots, "Fail");
 			break;
 		case ITestResult.SKIP:
 			ExcelUtils.setCellData("Skip", iTestCaseRow, Constant.Col_Result);
+			Utils.captureScreenshot(chiefdriver, sTestCaseName, Constant.Path_Screenshots, "Skip");
 			break;
 		default:
 			throw new RuntimeException("Invalid status");
