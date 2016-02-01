@@ -20,6 +20,7 @@ import appModule.Closing_Right_Task;
 import appModule.FindRightElement;
 import appModule.Selecting_RightElement;
 import appModule.Split_Date;
+import appModule.Suppress_ManagedRequirement;
 import pageObjects.ClaimIntake_page;
 import pageObjects.Claim_Benefit_page;
 import pageObjects.Tab_BenefitRight_Benefit_page;
@@ -263,7 +264,7 @@ public class Group_DeathEndToEnd_TC {
 		System.out.println("Execution Date is: " + ExecutionDate);
 
 		// Suppress Managed Requirements
-		// Suppress_ManagedRequirement.SupressManagedRequirement(cmanagerdriver);
+		Suppress_ManagedRequirement.SupressManagedRequirement(chiefdriver);
 
 		// Tasks Tab
 		Tab_Tasks_Claim_page.tab_task(chiefdriver).click();
@@ -401,7 +402,7 @@ public class Group_DeathEndToEnd_TC {
 		Claim_Benefit_page.btn_Ok(sysadmindriver).click();
 
 		// Navigate to Claim's Tasks tab and close the tasks
-		Claim_Benefit_page.lnk_Directclaim(sysadmindriver).click();
+		Claim_Benefit_page.lnk_Groupclaim(sysadmindriver).click();
 		Tab_Tasks_Claim_page.tab_task(sysadmindriver).click();
 		List<WebElement> RemainingClaimTasks = Tab_Tasks_Claim_page.tbl_TasksList(sysadmindriver)
 				.findElements(By.cssSelector("tbody > tr"));

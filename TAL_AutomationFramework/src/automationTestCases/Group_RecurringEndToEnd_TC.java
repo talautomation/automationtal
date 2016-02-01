@@ -21,6 +21,7 @@ import appModule.Closing_Right_Task;
 import appModule.FindRightElement;
 import appModule.Selecting_RightElement;
 import appModule.Split_Date;
+import appModule.Suppress_ManagedRequirement;
 import pageObjects.ClaimIntake_page;
 import pageObjects.Claim_Benefit_page;
 import pageObjects.PaymentsWizard_Benefit_page;
@@ -309,7 +310,7 @@ public class Group_RecurringEndToEnd_TC {
 		// Constant.Col_claimNumber);
 
 		// Suppress Managed Requirements
-		// Suppress_ManagedRequirement.SupressManagedRequirement(chiefdriver);
+		Suppress_ManagedRequirement.SupressManagedRequirement(chiefdriver);
 
 		// Enter PDI Information
 		Tab_Occupations_Claim_page.btn_OccupationTab(chiefdriver).click();

@@ -20,6 +20,7 @@ import appModule.Closing_Right_Task;
 import appModule.FindRightElement;
 import appModule.Selecting_RightElement;
 import appModule.Split_Date;
+import appModule.Suppress_ManagedRequirement;
 import pageObjects.ClaimIntake_page;
 import pageObjects.Claim_Benefit_page;
 import pageObjects.Tab_Coverages_page;
@@ -305,7 +306,7 @@ public class Group_LivingLSEndToEnd_TC {
 		System.out.println("Execution Date is: " + ExecutionDate);
 
 		// Suppress Managed Requirements
-		// Suppress_ManagedRequirement.SupressManagedRequirement(chiefdriver);
+		Suppress_ManagedRequirement.SupressManagedRequirement(chiefdriver);
 
 		// Tasks Tab
 		Tab_Tasks_Claim_page.tab_task(chiefdriver).click();
