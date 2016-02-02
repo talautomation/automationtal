@@ -371,12 +371,12 @@ public class Group_RecurringEndToEnd_TC {
 		appModule.Suppress_Validations.SupressValidations(chiefdriver);
 
 		// Disable tax as there is currently an issue
-		Tab_RecurringPayments_Benefit_page.tab_RecurringPayments(chiefdriver).click();
-		Tab_RecurringPayments_Benefit_page.subtab_Amounts(chiefdriver).click();
-		Tab_RecurringPayments_Benefit_page.subtab_Amounts_Tax(chiefdriver).click();
-		Tab_RecurringPayments_Benefit_page.btn_EditPAYGTax(chiefdriver).click();
-		Tab_RecurringPayments_Benefit_page.chk_TaxAppliesToBenefit(chiefdriver).click();
-		Tab_RecurringPayments_Benefit_page.btn_OKTaxAppliesToBenefit(chiefdriver).click();
+		// Tab_RecurringPayments_Benefit_page.tab_RecurringPayments(chiefdriver).click();
+		// Tab_RecurringPayments_Benefit_page.subtab_Amounts(chiefdriver).click();
+		// Tab_RecurringPayments_Benefit_page.subtab_Amounts_Tax(chiefdriver).click();
+		// Tab_RecurringPayments_Benefit_page.btn_EditPAYGTax(chiefdriver).click();
+		// Tab_RecurringPayments_Benefit_page.chk_TaxAppliesToBenefit(chiefdriver).click();
+		// Tab_RecurringPayments_Benefit_page.btn_OKTaxAppliesToBenefit(chiefdriver).click();
 
 		// Go to Benefit-Tasks Tab
 		Tab_Tasks_Benefit_page.tab_TasksTab(chiefdriver).click();
@@ -418,7 +418,7 @@ public class Group_RecurringEndToEnd_TC {
 		// Set Activity Period
 		PaymentsWizard_Benefit_page.txt_DayBenefitEndDay(chiefdriver).sendKeys(BenefitEndDay);
 		PaymentsWizard_Benefit_page.txt_DayBenefitEndMonth(chiefdriver).sendKeys(BenefitEndMonth);
-		PaymentsWizard_Benefit_page.txt_DayBenefitEndYear(chiefdriver).sendKeys("2017");
+		PaymentsWizard_Benefit_page.txt_DayBenefitEndYear(chiefdriver).sendKeys("2018");
 		Select periodStatus = new Select(PaymentsWizard_Benefit_page.sel_StatusActivityPeriod(chiefdriver));
 		periodStatus.selectByVisibleText("Approved");
 		PaymentsWizard_Benefit_page.btn_FinishPaymentSetUp(chiefdriver).click();

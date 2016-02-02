@@ -358,9 +358,9 @@ public class Group_DeathEndToEnd_TC {
 		description.selectByValue("1");
 		Tab_LumpSumPayments_Benefit_page.txt_BasicPayeeAmount(chiefdriver).clear();
 		// Enter Basic Payee Amount
-		Tab_LumpSumPayments_Benefit_page.txt_BasicPayeeAmount(chiefdriver).sendKeys("20000");
+		Tab_LumpSumPayments_Benefit_page.txt_BasicPayeeAmount(chiefdriver).sendKeys(SumInsured);
 		Tab_LumpSumPayments_Benefit_page.txt_BasicAmountDistribution(chiefdriver).clear();
-		Tab_LumpSumPayments_Benefit_page.txt_BasicAmountDistribution(chiefdriver).sendKeys("20000");
+		Tab_LumpSumPayments_Benefit_page.txt_BasicAmountDistribution(chiefdriver).sendKeys(SumInsured);
 		Tab_LumpSumPayments_Benefit_page.tabout_OutstandingAmount(chiefdriver).click();
 		Tab_LumpSumPayments_Benefit_page.btn_SaveDue(chiefdriver).click();
 		chiefdriver.quit();

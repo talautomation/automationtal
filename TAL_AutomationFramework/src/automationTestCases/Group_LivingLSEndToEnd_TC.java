@@ -23,6 +23,7 @@ import appModule.Split_Date;
 import appModule.Suppress_ManagedRequirement;
 import pageObjects.ClaimIntake_page;
 import pageObjects.Claim_Benefit_page;
+import pageObjects.Tab_BenefitRight_Benefit_page;
 import pageObjects.Tab_Coverages_page;
 import pageObjects.Tab_LumpSumPayments_Benefit_page;
 import pageObjects.Tab_PaymentHistory_Benefit_page;
@@ -47,7 +48,7 @@ public class Group_LivingLSEndToEnd_TC {
 	private String AccidentDateDay;
 	private String AccidentDateMonth;
 	private String AccidentDateYear;
-	private String SumInsured = "12345";
+	private String SumInsured;
 	private String ExecutionDate;
 
 	@BeforeSuite
@@ -341,11 +342,6 @@ public class Group_LivingLSEndToEnd_TC {
 		Selecting_RightElement.Select(chiefdriver, "Selected", allBenefitRights, 6);
 		Tab_Coverages_page.btn_CreateBen(chiefdriver).click();
 
-		// Navigate to Recurring Payments tab and capture Benefit Start Date
-		// Tab_RecurringPayments_Benefit_page.tab_RecurringPayments(cmanagerdriver).click();
-		// String
-		// BenefitStartDate=Tab_RecurringPayments_Benefit_page.txt_BenefitStartDate(cmanagerdriver).getText();
-
 		// Capture BenefitNumber
 		WebElement ElementBenefitNumber = chiefdriver.findElement(By.xpath(".//*[@id='tab-1']/div[1]/h2/span"));
 		BenefitNumber = ElementBenefitNumber.getText();
@@ -353,6 +349,12 @@ public class Group_LivingLSEndToEnd_TC {
 
 		// Suppress Validations
 		appModule.Suppress_Validations.SupressValidations(chiefdriver);
+
+		// Navigate to BenefitRight-Amount Details tab to capture Sum Insured
+		Tab_BenefitRight_Benefit_page.tab_BenefitRight(chiefdriver).click();
+		Tab_BenefitRight_Benefit_page.subtab_AmountDetails(chiefdriver).click();
+		SumInsured = Tab_BenefitRight_Benefit_page.txt_SumInsuredAtIncurredDate(chiefdriver).getText();
+		System.out.println("Benefit Amount is:" + SumInsured);
 
 		// Go to Benefit-Tasks Tab
 		Tab_Tasks_Benefit_page.tab_TasksTab(chiefdriver).click();
