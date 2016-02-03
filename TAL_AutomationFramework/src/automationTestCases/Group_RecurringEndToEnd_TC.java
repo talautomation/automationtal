@@ -418,7 +418,7 @@ public class Group_RecurringEndToEnd_TC {
 		// Set Activity Period
 		PaymentsWizard_Benefit_page.txt_DayBenefitEndDay(chiefdriver).sendKeys(BenefitEndDay);
 		PaymentsWizard_Benefit_page.txt_DayBenefitEndMonth(chiefdriver).sendKeys(BenefitEndMonth);
-		PaymentsWizard_Benefit_page.txt_DayBenefitEndYear(chiefdriver).sendKeys("2018");
+		PaymentsWizard_Benefit_page.txt_DayBenefitEndYear(chiefdriver).sendKeys("2017");
 		Select periodStatus = new Select(PaymentsWizard_Benefit_page.sel_StatusActivityPeriod(chiefdriver));
 		periodStatus.selectByVisibleText("Approved");
 		PaymentsWizard_Benefit_page.btn_FinishPaymentSetUp(chiefdriver).click();
