@@ -246,7 +246,7 @@ public class Group_DeathEndToEnd_TC {
 
 		Select AdviserprefContMet = new Select(ClaimIntake_page.sel_PreferredContactMethod(chiefdriver));
 		if ((AdviserprefContMet.getFirstSelectedOption().getText()).equals("Unknown")) {
-			prefContMet.selectByValue("4");
+			prefContMet.selectByVisibleText("Phone");
 		}
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 
