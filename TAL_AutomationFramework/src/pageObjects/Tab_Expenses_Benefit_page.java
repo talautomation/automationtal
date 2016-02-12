@@ -27,10 +27,8 @@ public class Tab_Expenses_Benefit_page {
 	}
 
 	public static WebElement subtab_ExpensePayments(WebDriver driver) {
-		Waitutil.waituntilclickabale(driver,
-				"*[id^='ExpenseListviewWidget_'][id$='_FINEOS.Provider.Approvals.MultipleExpenseApprovalsTab.Death_Benefit_Dues_cell']");
-		element = driver.findElement(By.cssSelector(
-				"*[id^='ExpenseListviewWidget_'][id$='_FINEOS.Provider.Approvals.MultipleExpenseApprovalsTab.Death_Benefit_Dues_cell']"));
+		Waitutil.waituntilclickabale(driver, "*[id^='ExpenseListviewWidget_'][id$='_Dues_cell']");
+		element = driver.findElement(By.cssSelector("*[id^='ExpenseListviewWidget_'][id$='_Dues_cell']"));
 		utility.Waitutil.implicitwait(driver);
 		return element;
 	}

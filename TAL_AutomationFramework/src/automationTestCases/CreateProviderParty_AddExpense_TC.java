@@ -35,7 +35,7 @@ public class CreateProviderParty_AddExpense_TC {
 	private int iTestCaseRow;
 	private String ExecutionDate;
 	private String BenefitNumber;
-	private String ProviderName = "Test10 Fineos Test";
+	private String ProviderName = "Test1 Fineos Test1";
 
 	@BeforeSuite
 

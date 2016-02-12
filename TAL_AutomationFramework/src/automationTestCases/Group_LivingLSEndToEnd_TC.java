@@ -23,7 +23,6 @@ import appModule.Split_Date;
 import appModule.Suppress_ManagedRequirement;
 import pageObjects.ClaimIntake_page;
 import pageObjects.Claim_Benefit_page;
-import pageObjects.Tab_BenefitRight_Benefit_page;
 import pageObjects.Tab_Coverages_page;
 import pageObjects.Tab_LumpSumPayments_Benefit_page;
 import pageObjects.Tab_PaymentHistory_Benefit_page;
@@ -48,7 +47,7 @@ public class Group_LivingLSEndToEnd_TC {
 	private String AccidentDateDay;
 	private String AccidentDateMonth;
 	private String AccidentDateYear;
-	private String SumInsured;
+	private String SumInsured = "70000";
 	private String ExecutionDate;
 
 	@BeforeSuite
@@ -226,7 +225,16 @@ public class Group_LivingLSEndToEnd_TC {
 		List<WebElement> allBenefitTypes = ClaimIntake_page.tbl_ListofBenefitTypes(chiefdriver)
 				.findElements(By.cssSelector("tbody > tr"));
 		Selecting_RightElement.Select(chiefdriver, sBenefitType, allBenefitTypes, 1);
-		Thread.sleep(5000);
+		ClaimIntake_page.btn_OpenBenefit(chiefdriver).click();
+		ClaimIntake_page.tab_Benefit_AmountDetails(chiefdriver).click();
+		ClaimIntake_page.chk_SumInsuredAtIncurredDate(chiefdriver).click();
+		ClaimIntake_page.txt_SumInsuredAtIncurredDate(chiefdriver).clear();
+		ClaimIntake_page.txt_SumInsuredAtIncurredDate(chiefdriver).sendKeys(SumInsured);
+		ClaimIntake_page.txt_FlatAmount(chiefdriver).clear();
+		ClaimIntake_page.txt_FlatAmount(chiefdriver).sendKeys(SumInsured);
+		Thread.sleep(3000);
+		ClaimIntake_page.txt_AutomaticAcceptanceLimit(chiefdriver).click();
+		Claim_Benefit_page.btn_Ok(chiefdriver).click();
 		ClaimIntake_page.btn_SelectBenefitRight(chiefdriver).click();
 		Thread.sleep(5000);
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
@@ -351,10 +359,11 @@ public class Group_LivingLSEndToEnd_TC {
 		appModule.Suppress_Validations.SupressValidations(chiefdriver);
 
 		// Navigate to BenefitRight-Amount Details tab to capture Sum Insured
-		Tab_BenefitRight_Benefit_page.tab_BenefitRight(chiefdriver).click();
-		Tab_BenefitRight_Benefit_page.subtab_AmountDetails(chiefdriver).click();
-		SumInsured = Tab_BenefitRight_Benefit_page.txt_SumInsuredAtIncurredDate(chiefdriver).getText();
-		System.out.println("Benefit Amount is:" + SumInsured);
+		// Tab_BenefitRight_Benefit_page.tab_BenefitRight(chiefdriver).click();
+		// Tab_BenefitRight_Benefit_page.subtab_AmountDetails(chiefdriver).click();
+		// SumInsured =
+		// Tab_BenefitRight_Benefit_page.txt_SumInsuredAtIncurredDate(chiefdriver).getText();
+		// System.out.println("Benefit Amount is:" + SumInsured);
 
 		// Go to Benefit-Tasks Tab
 		Tab_Tasks_Benefit_page.tab_TasksTab(chiefdriver).click();

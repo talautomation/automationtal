@@ -491,4 +491,73 @@ public class ClaimIntake_page {
 		return element;
 	}
 
+	public static WebElement btn_OpenBenefit(WebDriver driver) {
+		Waitutil.waituntilclickabale(driver, "*[id^='BenefitRightsListViewWidget_'][id$='_BenefitRights_cmdEdit']");
+		element = driver
+				.findElement(By.cssSelector("*[id^='BenefitRightsListViewWidget_'][id$='_BenefitRights_cmdEdit']"));
+		utility.Waitutil.implicitwait(driver);
+		return element;
+	}
+
+	public static WebElement tab_Benefit_AmountDetails(WebDriver driver) {
+		Waitutil.waituntilclickabale(driver, "*[id^='BenefitRightTabbedDialogWidget_'][id$='AmountDetails_cell']");
+		element = driver
+				.findElement(By.cssSelector("*[id^='BenefitRightTabbedDialogWidget_'][id$='AmountDetails_cell']"));
+		utility.Waitutil.implicitwait(driver);
+		return element;
+	}
+
+	public static WebElement chk_SumInsuredAtIncurredDate(WebDriver driver) {
+		Waitutil.waituntilclickabale(driver,
+				"*[id^='LumpSumAmountWidget_'][id$='_overrideSumAssuredCheckBoxBean_CHECKBOX']");
+		element = driver.findElement(
+				By.cssSelector("*[id^='LumpSumAmountWidget_'][id$='_overrideSumAssuredCheckBoxBean_CHECKBOX']"));
+		utility.Waitutil.implicitwait(driver);
+		return element;
+	}
+
+	public static WebElement txt_SumInsuredAtIncurredDate(WebDriver driver) throws InterruptedException {
+		Thread.sleep(1000);
+		Waitutil.waituntilclickabale(driver, "*[id^='LumpSumAmountWidget_'][id$='_Sum_Assured_at_Incurred_Date']");
+		element = driver
+				.findElement(By.cssSelector("*[id^='LumpSumAmountWidget_'][id$='_Sum_Assured_at_Incurred_Date']"));
+		utility.Waitutil.implicitwait(driver);
+		return element;
+	}
+
+	public static WebElement txt_FlatAmount(WebDriver driver) throws InterruptedException {
+		Thread.sleep(1000);
+		Waitutil.waituntilclickabale(driver, "*[id^='SumAssuredBasisWidget_'][id$='_flatAmountMoneyBean']");
+		element = driver.findElement(By.cssSelector("*[id^='SumAssuredBasisWidget_'][id$='_flatAmountMoneyBean']"));
+		Thread.sleep(1000);
+		utility.Waitutil.implicitwait(driver);
+		return element;
+
+	}
+
+	public static WebElement txt_AutomaticAcceptanceLimit(WebDriver driver) throws InterruptedException {
+		Waitutil.waituntilclickabale(driver, "*[id^='PaymentGroupDetailsWidget_'][id$='_AutoAcceptanceLimit']");
+		element = driver.findElement(By.cssSelector("*[id^='PaymentGroupDetailsWidget_'][id$='_AutoAcceptanceLimit']"));
+		utility.Waitutil.implicitwait(driver);
+		return element;
+
+	}
+	
+	public static WebElement tab_Benefit_CalculationParameters(WebDriver driver) {
+		Waitutil.waituntilclickabale(driver, "*[id^='BenefitRightTabbedDialogWidget_'][id$='_CalculationParameters_cell']");
+		element = driver
+				.findElement(By.cssSelector("*[id^='BenefitRightTabbedDialogWidget_'][id$='_CalculationParameters_cell']"));
+		utility.Waitutil.implicitwait(driver);
+		return element;
+	}
+	
+	public static WebElement txt_FrequencyAmount(WebDriver driver) throws InterruptedException {
+		Thread.sleep(1000);
+		Waitutil.waituntilclickabale(driver, "*[id^='PaymentAmountDetailsWidget_'][id$='_frequencyAmount']");
+		element = driver.findElement(By.cssSelector("*[id^='PaymentAmountDetailsWidget_'][id$='_frequencyAmount']"));
+		Thread.sleep(1000);
+		utility.Waitutil.implicitwait(driver);
+		return element;
+
+	}
 }

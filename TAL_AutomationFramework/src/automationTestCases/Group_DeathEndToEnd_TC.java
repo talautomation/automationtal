@@ -23,7 +23,6 @@ import appModule.Split_Date;
 import appModule.Suppress_ManagedRequirement;
 import pageObjects.ClaimIntake_page;
 import pageObjects.Claim_Benefit_page;
-import pageObjects.Tab_BenefitRight_Benefit_page;
 import pageObjects.Tab_Coverages_page;
 import pageObjects.Tab_LumpSumPayments_Benefit_page;
 import pageObjects.Tab_PaymentHistory_Benefit_page;
@@ -43,7 +42,7 @@ public class Group_DeathEndToEnd_TC {
 	private int iTestCaseRow;
 	private String ClaimNumber;
 	private String BenefitNumber;
-	private String SumInsured;
+	private String SumInsured = "10000";
 	private String IncurredDateDay;
 	private String IncurredDateMonth;
 	private String IncurredDateYear;
@@ -197,6 +196,17 @@ public class Group_DeathEndToEnd_TC {
 				.findElements(By.cssSelector("tbody > tr"));
 		Selecting_RightElement.Select(chiefdriver, sBenefitType, allBenefitTypes, 1);
 		// Thread.sleep(2000);
+		ClaimIntake_page.btn_OpenBenefit(chiefdriver).click();
+		ClaimIntake_page.tab_Benefit_AmountDetails(chiefdriver).click();
+		ClaimIntake_page.chk_SumInsuredAtIncurredDate(chiefdriver).click();
+		ClaimIntake_page.txt_SumInsuredAtIncurredDate(chiefdriver).clear();
+		ClaimIntake_page.txt_SumInsuredAtIncurredDate(chiefdriver).sendKeys(SumInsured);
+		ClaimIntake_page.txt_FlatAmount(chiefdriver).clear();
+		ClaimIntake_page.txt_FlatAmount(chiefdriver).sendKeys(SumInsured);
+		Thread.sleep(3000);
+		ClaimIntake_page.txt_AutomaticAcceptanceLimit(chiefdriver).click();
+		Claim_Benefit_page.btn_Ok(chiefdriver).click();
+
 		ClaimIntake_page.btn_SelectBenefitRight(chiefdriver).click();
 		// Thread.sleep(5000);
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
@@ -246,7 +256,7 @@ public class Group_DeathEndToEnd_TC {
 
 		Select AdviserprefContMet = new Select(ClaimIntake_page.sel_PreferredContactMethod(chiefdriver));
 		if ((AdviserprefContMet.getFirstSelectedOption().getText()).equals("Unknown")) {
-			prefContMet.selectByVisibleText("Phone");
+			AdviserprefContMet.selectByValue("4");
 		}
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 
@@ -305,10 +315,11 @@ public class Group_DeathEndToEnd_TC {
 		Tab_Coverages_page.btn_CreateBen(chiefdriver).click();
 
 		// Navigate to BenefitRight-Amount Details tab to capture Sum Insured
-		Tab_BenefitRight_Benefit_page.tab_BenefitRight(chiefdriver).click();
-		Tab_BenefitRight_Benefit_page.subtab_AmountDetails(chiefdriver).click();
-		SumInsured = Tab_BenefitRight_Benefit_page.txt_SumInsuredAtIncurredDate(chiefdriver).getText();
-		System.out.println("Benefit Amount is:" + SumInsured);
+		// Tab_BenefitRight_Benefit_page.tab_BenefitRight(chiefdriver).click();
+		// Tab_BenefitRight_Benefit_page.subtab_AmountDetails(chiefdriver).click();
+		// SumInsured =
+		// Tab_BenefitRight_Benefit_page.txt_SumInsuredAtIncurredDate(chiefdriver).getText();
+		// System.out.println("Benefit Amount is:" + SumInsured);
 
 		// Go to Benefit-Tasks Tab
 		Tab_Tasks_Benefit_page.tab_TasksTab(chiefdriver).click();
@@ -355,7 +366,7 @@ public class Group_DeathEndToEnd_TC {
 		// Selecting_RightElement.Select(chiefdriver, "Payee", Payees, 1);
 		Tab_LumpSumPayments_Benefit_page.btn_Select(chiefdriver).click();
 		Select description = new Select(Tab_LumpSumPayments_Benefit_page.sel_Description(chiefdriver));
-		description.selectByValue("1");
+		description.selectByVisibleText("Benefit Payment");
 		Tab_LumpSumPayments_Benefit_page.txt_BasicPayeeAmount(chiefdriver).clear();
 		// Enter Basic Payee Amount
 		Tab_LumpSumPayments_Benefit_page.txt_BasicPayeeAmount(chiefdriver).sendKeys(SumInsured);

@@ -52,6 +52,7 @@ public class Group_RecurringEndToEnd_TC {
 	private String AccidentDateDay;
 	private String AccidentDateMonth;
 	private String AccidentDateYear;
+	private String SumInsured = "7000";
 	private String ExecutionDate;
 
 	@BeforeSuite
@@ -145,6 +146,7 @@ public class Group_RecurringEndToEnd_TC {
 
 		Select type = new Select(ClaimIntake_page.sel_Type(chiefdriver));
 		type.selectByValue("3");
+		Thread.sleep(1000);
 		// ClaimIntake_page.chk_AreYouTalkingToInsured(chiefdriver).click();
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 
@@ -218,7 +220,12 @@ public class Group_RecurringEndToEnd_TC {
 		List<WebElement> allBenefitTypes = ClaimIntake_page.tbl_ListofBenefitTypes(chiefdriver)
 				.findElements(By.cssSelector("tbody > tr"));
 		Selecting_RightElement.Select(chiefdriver, sBenefitType, allBenefitTypes, 1);
-		Thread.sleep(5000);
+		ClaimIntake_page.btn_OpenBenefit(chiefdriver).click();
+		ClaimIntake_page.tab_Benefit_CalculationParameters(chiefdriver).click();
+		ClaimIntake_page.txt_FrequencyAmount(chiefdriver).clear();
+		ClaimIntake_page.txt_FrequencyAmount(chiefdriver).sendKeys(SumInsured);
+		Thread.sleep(3000);
+		Claim_Benefit_page.btn_Ok(chiefdriver).click();
 		ClaimIntake_page.btn_SelectBenefitRight(chiefdriver).click();
 		Thread.sleep(3000);
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
@@ -371,12 +378,12 @@ public class Group_RecurringEndToEnd_TC {
 		appModule.Suppress_Validations.SupressValidations(chiefdriver);
 
 		// Disable tax as there is currently an issue
-		// Tab_RecurringPayments_Benefit_page.tab_RecurringPayments(chiefdriver).click();
-		// Tab_RecurringPayments_Benefit_page.subtab_Amounts(chiefdriver).click();
-		// Tab_RecurringPayments_Benefit_page.subtab_Amounts_Tax(chiefdriver).click();
-		// Tab_RecurringPayments_Benefit_page.btn_EditPAYGTax(chiefdriver).click();
-		// Tab_RecurringPayments_Benefit_page.chk_TaxAppliesToBenefit(chiefdriver).click();
-		// Tab_RecurringPayments_Benefit_page.btn_OKTaxAppliesToBenefit(chiefdriver).click();
+		Tab_RecurringPayments_Benefit_page.tab_RecurringPayments(chiefdriver).click();
+		Tab_RecurringPayments_Benefit_page.subtab_Amounts(chiefdriver).click();
+		Tab_RecurringPayments_Benefit_page.subtab_Amounts_Tax(chiefdriver).click();
+		Tab_RecurringPayments_Benefit_page.btn_EditPAYGTax(chiefdriver).click();
+		Tab_RecurringPayments_Benefit_page.chk_TaxAppliesToBenefit(chiefdriver).click();
+		Tab_RecurringPayments_Benefit_page.btn_OKTaxAppliesToBenefit(chiefdriver).click();
 
 		// Go to Benefit-Tasks Tab
 		Tab_Tasks_Benefit_page.tab_TasksTab(chiefdriver).click();
