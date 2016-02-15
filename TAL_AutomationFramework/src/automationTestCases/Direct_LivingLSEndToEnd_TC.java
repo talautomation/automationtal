@@ -342,7 +342,7 @@ public class Direct_LivingLSEndToEnd_TC {
 		// Selecting_RightElement.Select(chiefdriver, "Payee", Payees, 1);
 		Tab_LumpSumPayments_Benefit_page.btn_Select(chiefdriver).click();
 		Select description = new Select(Tab_LumpSumPayments_Benefit_page.sel_Description(chiefdriver));
-		description.selectByValue("1");
+		description.selectByVisibleText("1");
 		Tab_LumpSumPayments_Benefit_page.txt_BasicPayeeAmount(chiefdriver).clear();
 		// Enter Basic Payee Amount
 		Tab_LumpSumPayments_Benefit_page.txt_BasicPayeeAmount(chiefdriver).sendKeys(SumInsured);
