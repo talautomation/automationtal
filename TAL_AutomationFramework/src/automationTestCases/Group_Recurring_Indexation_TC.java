@@ -36,7 +36,7 @@ import utility.ExcelUtils;
 import utility.Log;
 import utility.Utils;
 
-public class Group_Recurring_Index_TC {
+public class Group_Recurring_Indexation_TC {
 
 	// test
 
