@@ -170,7 +170,7 @@ public class Group_RecurringEndToEnd_TC {
 		if ((prefContMet.getFirstSelectedOption().getText()).equals("Unknown")) {
 			prefContMet.selectByValue("3");
 		}
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 		Thread.sleep(2000);
 
