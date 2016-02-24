@@ -96,8 +96,8 @@ public class Tab_LumpSumPayments_Benefit_page {
 	}
 
 	public static WebElement sel_Description(WebDriver driver) {
-		Waitutil.waituntilclickabale(driver, "*[id^='AdhocDueAmountWidget_'][id$='_DescriptionEnum']");
-		element = driver.findElement(By.cssSelector("*[id^='AdhocDueAmountWidget_'][id$='_DescriptionEnum']"));
+		Waitutil.waituntilclickabale(driver, "*[id^='AdhocDueAmountWidget_'][id$='_DescriptionEnumPageLevel']");
+		element = driver.findElement(By.cssSelector("*[id^='AdhocDueAmountWidget_'][id$='_DescriptionEnumPageLevel']"));
 		utility.Waitutil.implicitwait(driver);
 		return element;
 	}

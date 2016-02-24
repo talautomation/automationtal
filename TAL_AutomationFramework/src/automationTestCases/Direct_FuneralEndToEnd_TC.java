@@ -133,9 +133,10 @@ public class Direct_FuneralEndToEnd_TC {
 
 		ClaimIntake_page.btn_ClaimsForPolicy_AddButton(chiefdriver).click();
 		// Thread.sleep(2000);
-		Select partition = new Select(ClaimIntake_page.sel_Partitions(chiefdriver));
-		partition.selectByVisibleText("TAL Head Office");
-		ClaimIntake_page.btn_NextButton(chiefdriver).click();
+		// Select partition = new
+		// Select(ClaimIntake_page.sel_Partitions(chiefdriver));
+		// partition.selectByVisibleText("TAL Head Office");
+		// ClaimIntake_page.btn_NextButton(chiefdriver).click();
 
 		Select source = new Select(ClaimIntake_page.sel_Source(chiefdriver));
 		source.selectByVisibleText("Paper");

@@ -87,9 +87,10 @@ public class CreateParty_Organisation_TC {
 		ClaimIntake_page.txt_Organisation(chiefdriver).sendKeys("Fineos Test Organisation");
 		ClaimIntake_page.btn_Search(chiefdriver).click();
 		OpenParty_page.btn_Add(chiefdriver).click();
-		Select partition = new Select(ClaimIntake_page.sel_Partitions(chiefdriver));
-		partition.selectByVisibleText("TAL Head Office");
-		OpenParty_page.btn_OkPartitionButton(chiefdriver).click();
+		// Select partition = new
+		// Select(ClaimIntake_page.sel_Partitions(chiefdriver));
+		// partition.selectByVisibleText("TAL Head Office");
+		// OpenParty_page.btn_OkPartitionButton(chiefdriver).click();
 		OpenParty_page.txt_TradingAs(chiefdriver).sendKeys("Test Organisation");
 		OpenParty_page.txt_ABN(chiefdriver).sendKeys("123456789");
 

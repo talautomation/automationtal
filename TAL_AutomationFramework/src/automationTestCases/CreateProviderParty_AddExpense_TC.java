@@ -101,9 +101,10 @@ public class CreateProviderParty_AddExpense_TC {
 		ClaimIntake_page.txt_Organisation(procofficerdriver).sendKeys(ProviderName);
 		ClaimIntake_page.btn_Search(procofficerdriver).click();
 		OpenParty_page.btn_Add(procofficerdriver).click();
-		Select partition = new Select(ClaimIntake_page.sel_Partitions(procofficerdriver));
-		partition.selectByVisibleText("TAL Head Office");
-		OpenParty_page.btn_OkPartitionButton(procofficerdriver).click();
+		// Select partition = new
+		// Select(ClaimIntake_page.sel_Partitions(procofficerdriver));
+		// partition.selectByVisibleText("TAL Head Office");
+		// OpenParty_page.btn_OkPartitionButton(procofficerdriver).click();
 		OpenParty_page.txt_TradingAs(procofficerdriver).sendKeys("Test Organisation");
 		OpenParty_page.txt_ABN(procofficerdriver).sendKeys("123456789");
 
