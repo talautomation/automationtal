@@ -204,7 +204,7 @@ public class Direct_RecurringEndToEnd_TC {
 
 		// Earning Details
 		Select PCIEarningBasis = new Select(ClaimIntake_page.sel_EarningBasis(chiefdriver));
-		PCIEarningBasis.selectByValue("2");
+		PCIEarningBasis.selectByVisibleText("Monthly");
 		ClaimIntake_page.txt_EarningsAmount(chiefdriver).clear();
 		ClaimIntake_page.txt_EarningsAmount(chiefdriver).sendKeys("1500");
 		ClaimIntake_page.btn_QuickAddEarnings(chiefdriver).click();

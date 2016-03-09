@@ -9,9 +9,16 @@
   <test verbose="2" name="Default test">
    <classes>
     	<!-- Commenting code -->
-    	<!--  class name="automationTestCases.SettingUpUser_TC"/-->
-    	<class name="automationTestCases.RecurringEndToEnd_TC"/>
-    	<!-- class name="automationTestCases.TraumaEndToEnd_TC"/-->
+    	<class name="automationTestCases.CreateParty_Organisation_TC"/>
+    	<class name="automationTestCases.Direct_RecurringEndToEnd_TC"/>
+    	<class name="automationTestCases.Direct_DeathEndToEnd_TC"/>
+    	<class name="automationTestCases.Direct_LivingLSEndToEnd_TC"/>
+    	<class name="automationTestCases.Direct_UnemploymentEndToEnd_TC"/>
+    	<class name="automationTestCases.Direct_FuneralEndToEnd_TC"/>
+    	<class name="automationTestCases.Group_RecurringEndToEnd_TC"/>
+    	<class name="automationTestCases.Group_Recurring_Indexation_TC"/>
+    	<class name="automationTestCases.Group_DeathEndToEnd_TC"/>
+    	<class name="automationTestCases.Group_LivingLSEndToEnd_TC"/>
    </classes>
   </test>
 </suite>

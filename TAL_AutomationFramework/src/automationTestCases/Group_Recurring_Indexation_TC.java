@@ -242,8 +242,11 @@ public class Group_Recurring_Indexation_TC {
 		occupationCategory.selectByValue("2");
 
 		// Earning Details
-		Select PCIEarningBasis = new Select(ClaimIntake_page.sel_EarningBasis(chiefdriver));
-		PCIEarningBasis.selectByValue("2");
+		Select EarningType = new Select(ClaimIntake_page.sel_EarningType(chiefdriver));
+		EarningType.selectByVisibleText("Base");
+		Thread.sleep(3000);
+		Select EarningBasis = new Select(ClaimIntake_page.sel_EarningBasis(chiefdriver));
+		EarningBasis.selectByVisibleText("Monthly");
 		ClaimIntake_page.txt_EarningsAmount(chiefdriver).clear();
 		ClaimIntake_page.txt_EarningsAmount(chiefdriver).sendKeys("3000");
 		ClaimIntake_page.btn_QuickAddEarnings(chiefdriver).click();

@@ -330,6 +330,15 @@ public class ClaimIntake_page {
 		return element;
 	}
 
+	public static WebElement sel_EarningType(WebDriver driver) throws InterruptedException {
+		Thread.sleep(3000);
+		Waitutil.waituntilvisible(driver, "*[id^='DatedEarningsListviewWidget_'][id$='_earningsTypeEnumDropDownBean']");
+		element = driver.findElement(
+				By.cssSelector("*[id^='DatedEarningsListviewWidget_'][id$='_earningsTypeEnumDropDownBean']"));
+		utility.Waitutil.implicitwait(driver);
+		return element;
+	}
+
 	public static WebElement sel_EarningBasis(WebDriver driver) throws InterruptedException {
 		Thread.sleep(3000);
 		Waitutil.waituntilvisible(driver, "*[id^='DatedEarningsListviewWidget_'][id$='_Earnings_Basis']");
@@ -542,15 +551,16 @@ public class ClaimIntake_page {
 		return element;
 
 	}
-	
+
 	public static WebElement tab_Benefit_CalculationParameters(WebDriver driver) {
-		Waitutil.waituntilclickabale(driver, "*[id^='BenefitRightTabbedDialogWidget_'][id$='_CalculationParameters_cell']");
-		element = driver
-				.findElement(By.cssSelector("*[id^='BenefitRightTabbedDialogWidget_'][id$='_CalculationParameters_cell']"));
+		Waitutil.waituntilclickabale(driver,
+				"*[id^='BenefitRightTabbedDialogWidget_'][id$='_CalculationParameters_cell']");
+		element = driver.findElement(
+				By.cssSelector("*[id^='BenefitRightTabbedDialogWidget_'][id$='_CalculationParameters_cell']"));
 		utility.Waitutil.implicitwait(driver);
 		return element;
 	}
-	
+
 	public static WebElement txt_FrequencyAmount(WebDriver driver) throws InterruptedException {
 		Thread.sleep(1000);
 		Waitutil.waituntilclickabale(driver, "*[id^='PaymentAmountDetailsWidget_'][id$='_frequencyAmount']");
