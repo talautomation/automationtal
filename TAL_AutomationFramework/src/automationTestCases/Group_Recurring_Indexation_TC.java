@@ -243,7 +243,7 @@ public class Group_Recurring_Indexation_TC {
 
 		// Earning Details
 		Select EarningType = new Select(ClaimIntake_page.sel_EarningType(chiefdriver));
-		EarningType.selectByVisibleText("Base");
+		EarningType.selectByVisibleText("Base at Date of Claim");
 		Thread.sleep(3000);
 		Select EarningBasis = new Select(ClaimIntake_page.sel_EarningBasis(chiefdriver));
 		EarningBasis.selectByVisibleText("Monthly");

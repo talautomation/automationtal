@@ -243,7 +243,7 @@ public class Group_RecurringEndToEnd_TC {
 
 		// Earning Details
 		Select EarningType = new Select(ClaimIntake_page.sel_EarningType(chiefdriver));
-		EarningType.selectByVisibleText("Package");
+		EarningType.selectByVisibleText("Package at Date of Claim");
 		Thread.sleep(3000);
 		Select EarningBasis = new Select(ClaimIntake_page.sel_EarningBasis(chiefdriver));
 		EarningBasis.selectByVisibleText("Monthly");
@@ -429,7 +429,7 @@ public class Group_RecurringEndToEnd_TC {
 		// Set Activity Period
 		PaymentsWizard_Benefit_page.txt_DayBenefitEndDay(chiefdriver).sendKeys(BenefitEndDay);
 		PaymentsWizard_Benefit_page.txt_DayBenefitEndMonth(chiefdriver).sendKeys(BenefitEndMonth);
-		PaymentsWizard_Benefit_page.txt_DayBenefitEndYear(chiefdriver).sendKeys("2017");
+		PaymentsWizard_Benefit_page.txt_DayBenefitEndYear(chiefdriver).sendKeys(BenefitEndYear);
 		Select periodStatus = new Select(PaymentsWizard_Benefit_page.sel_StatusActivityPeriod(chiefdriver));
 		periodStatus.selectByVisibleText("Approved");
 		PaymentsWizard_Benefit_page.btn_FinishPaymentSetUp(chiefdriver).click();

@@ -234,7 +234,7 @@ public class Group_LivingLSEndToEnd_TC {
 		ClaimIntake_page.txt_FlatAmount(chiefdriver).clear();
 		ClaimIntake_page.txt_FlatAmount(chiefdriver).sendKeys(SumInsured);
 		Thread.sleep(3000);
-		ClaimIntake_page.txt_AutomaticAcceptanceLimit(chiefdriver).click();
+		ClaimIntake_page.txt_SumInsuredAtIncurredDate(chiefdriver).click();
 		Claim_Benefit_page.btn_Ok(chiefdriver).click();
 		ClaimIntake_page.btn_SelectBenefitRight(chiefdriver).click();
 		Thread.sleep(5000);

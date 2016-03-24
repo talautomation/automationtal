@@ -93,7 +93,7 @@ public class CreateProviderParty_AddExpense_TC {
 	}
 
 	@Test
-	public void Direct_LivingLSEndtoEnd() throws Exception {
+	public void CreateProviderParty_AddExpense() throws Exception {
 		BenefitNumber = ExcelUtils.getCellData(iTestCaseRow, Constant.Col_claimNumber);
 		procofficerdriver = Utils.openBrowser(iTestCaseRow, Constant.URL_PROCOFFICER);
 		OpenParty_page.btn_OpenParty(procofficerdriver).click();

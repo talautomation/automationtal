@@ -42,7 +42,7 @@ public class Group_DeathEndToEnd_TC {
 	private int iTestCaseRow;
 	private String ClaimNumber;
 	private String BenefitNumber;
-	private String SumInsured = "10000";
+	private String SumInsured = "40000";
 	private String IncurredDateDay;
 	private String IncurredDateMonth;
 	private String IncurredDateYear;
@@ -205,7 +205,7 @@ public class Group_DeathEndToEnd_TC {
 		ClaimIntake_page.txt_FlatAmount(chiefdriver).clear();
 		ClaimIntake_page.txt_FlatAmount(chiefdriver).sendKeys(SumInsured);
 		Thread.sleep(3000);
-		ClaimIntake_page.txt_AutomaticAcceptanceLimit(chiefdriver).click();
+		ClaimIntake_page.txt_SumInsuredAtIncurredDate(chiefdriver).click();
 		Claim_Benefit_page.btn_Ok(chiefdriver).click();
 
 		ClaimIntake_page.btn_SelectBenefitRight(chiefdriver).click();
