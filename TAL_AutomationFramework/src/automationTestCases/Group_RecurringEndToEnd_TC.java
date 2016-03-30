@@ -211,7 +211,8 @@ public class Group_RecurringEndToEnd_TC {
 
 		List<WebElement> allClasses = ClaimIntake_page.tbl_Classes(chiefdriver)
 				.findElements(By.cssSelector("tbody > tr"));
-		Selecting_RightElement.Select(chiefdriver, "30 Days/Age 70", allClasses, 0);
+		Selecting_RightElement.Select(chiefdriver, "60 Days", allClasses, 1);
+		Selecting_RightElement.Select(chiefdriver, "To Age 70", allClasses, 2);
 		ClaimIntake_page.btn_LinkDivsionClass(chiefdriver).click();
 
 		Thread.sleep(3000);
