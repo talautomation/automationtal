@@ -19,6 +19,7 @@ public class Suppress_ManagedRequirement {
 		Tab_ManagedRequirements_Claim_page.btn_ManagedRequirementSuppressButton(driver).click();
 
 		Tab_ManagedRequirements_Claim_page.btn_OKManagedRequirementSuppressButton(driver).click();
+		Thread.sleep(3000);
 
 	}
 

@@ -8,17 +8,18 @@ public class Tab_Tasks_Claim_page {
 
 	private static WebElement element = null;
 
-	public static WebElement tab_task(WebDriver driver) {
+	public static WebElement tab_task(WebDriver driver) throws InterruptedException {
 		// element =
 		// driver.findElement(By.xpath(".//*[@id='DisplayCaseTabbedDialogWidget_un22_CaseTabControlBean_Tasks_cell']/div"));
-		element = driver.findElement(
-				By.cssSelector("*[id^='DisplayCaseTabbedDialogWidget_'][id$='_CaseTabControlBean_Tasks_cell']"));
+		Thread.sleep(4000);
+		element = driver.findElement(By.cssSelector("*[id^='DisplayCaseTabbedDialogWidget'][id$='_Tasks_cell']"));
 		utility.Waitutil.implicitwait(driver);
 		return element;
 	}
 
 	public static WebElement tbl_TasksList(WebDriver driver) {
-		element = driver.findElement(By.cssSelector("*[id^='TasksForCaseListViewWidget_'][id$='_TasksForCaseWidget']"));
+		element = driver.findElement(
+				By.cssSelector("*[id^='TasksForCaseListViewWidget_'][id$='TasksForCaseWidget_ScrollPane']"));
 		utility.Waitutil.implicitwait(driver);
 		return element;
 	}

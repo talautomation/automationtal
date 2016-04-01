@@ -212,11 +212,11 @@ public class Group_LivingLSEndToEnd_TC {
 		// Thread.sleep(3000);
 		List<WebElement> allDivisions = ClaimIntake_page.tbl_Divisions(chiefdriver)
 				.findElements(By.cssSelector("tbody > tr"));
-		Selecting_RightElement.Select(chiefdriver, "Personal", allDivisions, 1);
+		Selecting_RightElement.Select(chiefdriver, "Personal", allDivisions, 0);
 
 		List<WebElement> allClasses = ClaimIntake_page.tbl_Classes(chiefdriver)
 				.findElements(By.cssSelector("tbody > tr"));
-		Selecting_RightElement.Select(chiefdriver, "Living", allClasses, 0);
+		Selecting_RightElement.Select(chiefdriver, "TPD", allClasses, 3);
 		ClaimIntake_page.btn_LinkDivsionClass(chiefdriver).click();
 
 		Thread.sleep(3000);
