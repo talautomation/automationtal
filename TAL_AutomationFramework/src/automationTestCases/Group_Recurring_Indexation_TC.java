@@ -207,11 +207,11 @@ public class Group_Recurring_Indexation_TC {
 		// Thread.sleep(3000);
 		List<WebElement> allDivisions = ClaimIntake_page.tbl_Divisions(chiefdriver)
 				.findElements(By.cssSelector("tbody > tr"));
-		Selecting_RightElement.Select(chiefdriver, "Personal", allDivisions, 1);
+		Selecting_RightElement.Select(chiefdriver, "Personal", allDivisions, 0);
 
 		List<WebElement> allClasses = ClaimIntake_page.tbl_Classes(chiefdriver)
 				.findElements(By.cssSelector("tbody > tr"));
-		Selecting_RightElement.Select(chiefdriver, "180 Days/5 Years", allClasses, 0);
+		Selecting_RightElement.Concatenate(chiefdriver, "180 Days", "5 Years", allClasses, 2, 3);
 		ClaimIntake_page.btn_LinkDivsionClass(chiefdriver).click();
 
 		Thread.sleep(3000);
@@ -269,20 +269,25 @@ public class Group_Recurring_Indexation_TC {
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 
 		// Notifier Details Page
-		ClaimIntake_page.btn_SearchNotifier(chiefdriver).click();
+		// ClaimIntake_page.btn_SearchNotifier(chiefdriver).click();
 		// ClaimIntake_page.txt_FirstName(chiefdriver).sendKeys("A");
-		ClaimIntake_page.txt_LastName(chiefdriver).sendKeys("pe");
-		ClaimIntake_page.btn_Search(chiefdriver).click();
-		ClaimIntake_page.btn_Select(chiefdriver).click();
-		Select NotifierTitle = new Select(ClaimIntake_page.sel_SelectTitle(chiefdriver));
-		if ((NotifierTitle.getFirstSelectedOption().getText()).equals("Unknown")) {
-			NotifierTitle.selectByVisibleText("Sir");
-			Select NotifierGender = new Select(ClaimIntake_page.sel_SelectGender(chiefdriver));
-			NotifierGender.selectByVisibleText("Male");
-		}
+		// ClaimIntake_page.txt_LastName(chiefdriver).sendKeys("pe");
+		// ClaimIntake_page.btn_Search(chiefdriver).click();
+		// ClaimIntake_page.btn_Select(chiefdriver).click();
+		// Select NotifierTitle = new
+		// Select(ClaimIntake_page.sel_SelectTitle(chiefdriver));
+		// if
+		// ((NotifierTitle.getFirstSelectedOption().getText()).equals("Unknown"))
+		// {
+		// NotifierTitle.selectByVisibleText("Sir");
+		// Select NotifierGender = new
+		// Select(ClaimIntake_page.sel_SelectGender(chiefdriver));
+		// NotifierGender.selectByVisibleText("Male");
+		// }
 
-		Select relationship = new Select(ClaimIntake_page.sel_RelationshipToInsured(chiefdriver));
-		relationship.selectByValue("3");
+		// Select relationship = new
+		// Select(ClaimIntake_page.sel_RelationshipToInsured(chiefdriver));
+		// relationship.selectByValue("3");
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 
 		// Adviser Details Page
@@ -305,8 +310,8 @@ public class Group_Recurring_Indexation_TC {
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 
 		// Contact Details Page
-		ClaimIntake_page.chk_PrimaryContact(chiefdriver).click();
-		ClaimIntake_page.btn_ApplyPrimaryContact(chiefdriver).click();
+		// ClaimIntake_page.chk_PrimaryContact(chiefdriver).click();
+		// ClaimIntake_page.btn_ApplyPrimaryContact(chiefdriver).click();
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 
 		// Capture Claim Number
