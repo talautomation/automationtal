@@ -29,7 +29,7 @@ public class Utils {
 				// "C:\\Users\\TTRNA3\\AppData\\Local\\Mozilla
 				// Firefox\\firefox.exe");
 
-				System.setProperty("webdriver.firefox.bin", "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
+				System.setProperty("webdriver.firefox.bin", "C:\\Program Files (x86)\\mozilla Firefox\\firefox.exe");
 
 				driver = new FirefoxDriver();
 				utility.Waitutil.implicitwait(driver);
@@ -53,21 +53,25 @@ public class Utils {
 	public static String getTestCaseName(String sTestCase) throws Exception {
 
 		String value = sTestCase;
+		
+		
 
 		try {
 			Log.info("Test Case Name is : " + value);
 			int posi = value.indexOf("@");
-
+			
 			value = value.substring(0, posi);
 
 			posi = value.lastIndexOf(".");
 
 			value = value.substring(posi + 1);
+			
 
 			return value;
 
 		} catch (Exception e) {
 
+			System.out.println("reached step 2");
 			Log.error("Class Utils | Method getTestCaseName | Exception desc : " + e.getMessage());
 
 			throw (e);

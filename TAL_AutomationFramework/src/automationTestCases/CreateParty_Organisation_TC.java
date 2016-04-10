@@ -65,8 +65,14 @@ public class CreateParty_Organisation_TC {
 	public void beforeMethod() throws Exception {
 
 		DOMConfigurator.configure("log4j.xml");
+		
+
 		sTestCaseName = this.toString();
+
+		
 		sTestCaseName = Utils.getTestCaseName(this.toString());
+		
+		
 		Log.startTestCase(sTestCaseName);
 		ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Direct_TestCases");
 		iTestCaseRow = ExcelUtils.getRowContains(sTestCaseName, Constant.Col_TestCaseName);
