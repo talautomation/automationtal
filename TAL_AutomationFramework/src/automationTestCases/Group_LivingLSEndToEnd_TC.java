@@ -202,6 +202,7 @@ public class Group_LivingLSEndToEnd_TC {
 		monthAccidentDate.selectByVisibleText(AccidentDateMonth);
 		ClaimIntake_page.txt_YearAccidentDate(chiefdriver).sendKeys(AccidentDateYear);
 		Thread.sleep(2000);
+		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 
 		// Search Group Policy
 		ClaimIntake_page.btn_GroupClaim_AddContractsForClaim(chiefdriver).click();

@@ -171,6 +171,7 @@ public class Group_DeathEndToEnd_TC {
 		monthIncurredDate.selectByVisibleText(IncurredDateMonth);
 		ClaimIntake_page.txt_YearIncurredDate(chiefdriver).sendKeys(IncurredDateYear);
 		Thread.sleep(2000);
+		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 
 		// Search Group Policy
 		ClaimIntake_page.btn_GroupClaim_AddContractsForClaim(chiefdriver).click();

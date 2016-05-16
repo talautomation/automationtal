@@ -197,6 +197,7 @@ public class Group_RecurringEndToEnd_TC {
 		// Select Accident/Sickness/Unemployment
 		Select eventType = new Select(ClaimIntake_page.sel_AccidentSicknessUnemployment(chiefdriver));
 		eventType.selectByVisibleText(accidentOrSickness);
+		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 
 		// Search Group Policy
 		ClaimIntake_page.btn_GroupClaim_AddContractsForClaim(chiefdriver).click();
@@ -212,7 +213,7 @@ public class Group_RecurringEndToEnd_TC {
 
 		List<WebElement> allClasses = ClaimIntake_page.tbl_Classes(chiefdriver)
 				.findElements(By.cssSelector("tbody > tr"));
-		Selecting_RightElement.Concatenate(chiefdriver, "30 Days", "To Age 70", allClasses, 2, 3);
+		Selecting_RightElement.Concatenate(chiefdriver, "30 Days", "5 Years", allClasses, 2, 3);
 		ClaimIntake_page.btn_LinkDivsionClass(chiefdriver).click();
 
 		Thread.sleep(3000);

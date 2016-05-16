@@ -197,7 +197,9 @@ public class Group_Recurring_Indexation_TC {
 		// Select Accident/Sickness/Unemployment
 		Select eventType = new Select(ClaimIntake_page.sel_AccidentSicknessUnemployment(chiefdriver));
 		eventType.selectByVisibleText(accidentOrSickness);
+		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 
+		//Policy Details Page
 		// Search Group Policy
 		ClaimIntake_page.btn_GroupClaim_AddContractsForClaim(chiefdriver).click();
 		ClaimIntake_page.tab_GroupClaim_PolicySearch(chiefdriver).click();
