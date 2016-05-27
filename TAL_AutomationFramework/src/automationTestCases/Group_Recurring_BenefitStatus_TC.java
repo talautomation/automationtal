@@ -16,7 +16,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-import appModule.Closing_AllElements;
 import appModule.Closing_Right_Task;
 import appModule.FindRightElement;
 import appModule.Selecting_RightElement;
@@ -24,10 +23,8 @@ import appModule.Split_Date;
 import appModule.Suppress_ManagedRequirement;
 import pageObjects.ClaimIntake_page;
 import pageObjects.Claim_Benefit_page;
-import pageObjects.PaymentsWizard_Benefit_page;
 import pageObjects.Tab_Coverages_page;
 import pageObjects.Tab_Occupations_Claim_page;
-import pageObjects.Tab_PaymentHistory_Benefit_page;
 import pageObjects.Tab_RecurringPayments_Benefit_page;
 import pageObjects.Tab_Tasks_Benefit_page;
 import pageObjects.Tab_Tasks_Claim_page;
