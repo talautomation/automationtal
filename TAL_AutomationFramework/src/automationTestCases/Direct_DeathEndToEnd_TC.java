@@ -269,9 +269,11 @@ public class Direct_DeathEndToEnd_TC {
 				.findElements(By.cssSelector("tbody > tr"));
 		FindRightElement.SelectRightElement(chiefdriver, "Admit Benefit", StepAdmitBenefit);
 		Claim_Benefit_page.btn_Ok(chiefdriver).click();
+		Thread.sleep(3000);
 		List<WebElement> StepAdmitBenefit1 = Claim_Benefit_page.tbl_ChooseNextStep(chiefdriver)
 				.findElements(By.cssSelector("tbody > tr"));
 		FindRightElement.SelectRightElement(chiefdriver, "Admit Benefit", StepAdmitBenefit1);
+		Thread.sleep(3000);
 		Claim_Benefit_page.btn_Ok(chiefdriver).click();
 		// Navigate to Lump Sum Payments tab and Add
 		Tab_LumpSumPayments_Benefit_page.tab_LumpSumPayments(chiefdriver).click();

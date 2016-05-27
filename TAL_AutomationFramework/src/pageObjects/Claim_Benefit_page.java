@@ -19,6 +19,13 @@ public class Claim_Benefit_page {
 		utility.Waitutil.implicitwait(driver);
 		return element;
 	}
+	
+	public static WebElement tbl_ChooseAdmitReason(WebDriver driver) throws InterruptedException {
+		Thread.sleep(4000);
+		element = driver.findElement(By.cssSelector("*[id^='CHOOSE_NEXT_STEP_WIDGET_'][id$='_ReasonListView']"));
+		utility.Waitutil.implicitwait(driver);
+		return element;
+	}
 
 	public static WebElement btn_Ok(WebDriver driver) {
 
