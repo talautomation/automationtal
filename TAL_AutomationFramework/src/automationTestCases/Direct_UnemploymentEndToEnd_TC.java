@@ -138,7 +138,7 @@ public class Direct_UnemploymentEndToEnd_TC {
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 
 		Select prefContMet = new Select(ClaimIntake_page.sel_PreferredContactMethod(chiefdriver));
-		prefContMet.selectByValue("3");
+		prefContMet.selectByValue("2");
 		Thread.sleep(2000);
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 		Thread.sleep(2000);
@@ -185,6 +185,9 @@ public class Direct_UnemploymentEndToEnd_TC {
 		occupation.selectByValue("18");
 		Select occupationCategory = new Select(ClaimIntake_page.sel_OccupationCategory(chiefdriver));
 		occupationCategory.selectByValue("2");
+		Thread.sleep(3000);
+		//ClaimIntake_page.btn_QuickAddEmployer(chiefdriver).click();
+		Thread.sleep(3000);
 
 		// Earning Details
 		Select PCIEarningBasis = new Select(ClaimIntake_page.sel_EarningBasis(chiefdriver));

@@ -145,9 +145,9 @@ public class Direct_RecurringEndToEnd_TC {
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 
 		Select prefContMet = new Select(ClaimIntake_page.sel_PreferredContactMethod(chiefdriver));
-		if ((prefContMet.getFirstSelectedOption().getText()).equals("Unknown")) {
-			prefContMet.selectByValue("3");
-		}
+		//if ((prefContMet.getFirstSelectedOption().getText()).equals("Unknown")) {
+			prefContMet.selectByValue("2");
+		//}
 		Thread.sleep(2000);
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 		Thread.sleep(2000);
@@ -201,6 +201,9 @@ public class Direct_RecurringEndToEnd_TC {
 		occupation.selectByValue("20");
 		Select occupationCategory = new Select(ClaimIntake_page.sel_OccupationCategory(chiefdriver));
 		occupationCategory.selectByValue("2");
+		Thread.sleep(3000);
+		//ClaimIntake_page.btn_QuickAddEmployer(chiefdriver).click();
+		//Thread.sleep(3000);
 
 		// Earning Details
 		Select PCIEarningBasis = new Select(ClaimIntake_page.sel_EarningBasis(chiefdriver));
@@ -215,10 +218,10 @@ public class Direct_RecurringEndToEnd_TC {
 
 		// Medical Details Page
 		// Add a Medical Provider
-		ClaimIntake_page.btn_AddMedicalProvider(chiefdriver).click();
-		ClaimIntake_page.txt_LastName(chiefdriver).sendKeys("ph");
-		ClaimIntake_page.btn_Search(chiefdriver).click();
-		ClaimIntake_page.btn_Select(chiefdriver).click();
+		//ClaimIntake_page.btn_AddMedicalProvider(chiefdriver).click();
+		//ClaimIntake_page.txt_LastName(chiefdriver).sendKeys("ph");
+		//ClaimIntake_page.btn_Search(chiefdriver).click();
+		//ClaimIntake_page.btn_Select(chiefdriver).click();
 		Thread.sleep(1000);
 		ClaimIntake_page.txt_DiagnosisCode(chiefdriver).sendKeys("ear");
 		ClaimIntake_page.btn_SearchDiagnosisCode(chiefdriver).click();
@@ -450,6 +453,8 @@ public class Direct_RecurringEndToEnd_TC {
 		case ITestResult.FAILURE:
 			if (ClaimNumber != "") {
 				ExcelUtils.setCellData("Fail", iTestCaseRow, Constant.Col_Result);
+				ExcelUtils.setCellData(ClaimNumber, iTestCaseRow, Constant.Col_claimNumber);
+				ExcelUtils.setCellData(ExecutionDate, iTestCaseRow, Constant.Col_ExecutionDate);
 			}
 			break;
 		case ITestResult.SKIP:

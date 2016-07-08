@@ -172,9 +172,9 @@ public class Direct_LivingLSEndToEnd_TC {
 		}
 
 		Select prefContMet = new Select(ClaimIntake_page.sel_PreferredContactMethod(chiefdriver));
-		if ((prefContMet.getFirstSelectedOption().getText()).equals("Unknown")) {
-			prefContMet.selectByValue("4");
-		}
+		//if ((prefContMet.getFirstSelectedOption().getText()).equals("Unknown")) {
+			prefContMet.selectByValue("2");
+		//}
 
 		Thread.sleep(2000);
 
@@ -327,13 +327,12 @@ public class Direct_LivingLSEndToEnd_TC {
 		Tab_LumpSumPayments_Benefit_page.btn_AddPayments(chiefdriver).click();
 		Tab_LumpSumPayments_Benefit_page.btn_SearchPayee(chiefdriver).click();
 		Tab_LumpSumPayments_Benefit_page.btn_AddPayee(chiefdriver).click();
-		// List<WebElement> availablePayeeTypes =
-		// Tab_LumpSumPayments_page.tbl_AvailablePayeeRoles(chiefdriver).findElements(By.cssSelector("tbody
-		// > tr"));
-		// Selecting_RightElement.Select(chiefdriver, "Payee",
-		// availablePayeeTypes, 0);
-		// Tab_LumpSumPayments_page.btn_OKPayeeRoleSelection(chiefdriver).click();
-		// Tab_LumpSumPayments_page.txt_FirstName(chiefdriver).sendKeys(arg0);
+		 List<WebElement> availablePayeeTypes =
+				 Tab_LumpSumPayments_Benefit_page.tbl_AvailablePayeeRoles(chiefdriver).findElements(By.cssSelector("tbody > tr"));
+		 Selecting_RightElement.Select(chiefdriver, "Beneficiary",
+		 availablePayeeTypes, 0);
+		 Tab_LumpSumPayments_Benefit_page.btn_OKPayeeRoleSelection(chiefdriver).click();
+		 //Tab_LumpSumPayments_Benefit_page.txt_FirstName(chiefdriver).sendKeys(arg0);
 		Tab_LumpSumPayments_Benefit_page.txt_LastName(chiefdriver).sendKeys("sm");
 		Tab_LumpSumPayments_Benefit_page.btn_Search(chiefdriver).click();
 		Tab_LumpSumPayments_Benefit_page.btn_Select(chiefdriver).click();

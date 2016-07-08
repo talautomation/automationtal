@@ -161,9 +161,17 @@ public class ClaimIntake_page {
 
 	public static WebElement btn_SearchEmployer(WebDriver driver) {
 		Waitutil.waituntilclickabale(driver,
-				"*[id^='OccupationDetailsWidget_'][id$='_RelControlEmployer_rcbSearchButton_RelControlEmployer']");
+				"*[id^='OccupationDetailsWidget_'][id$='_RelControlEmployer']");
 		element = driver.findElement(By.cssSelector(
-				"*[id^='OccupationDetailsWidget_'][id$='_RelControlEmployer_rcbSearchButton_RelControlEmployer']"));
+				"*[id^='OccupationDetailsWidget_'][id$='_RelControlEmployer']"));
+		utility.Waitutil.implicitwait(driver);
+		return element;
+	}
+	public static WebElement btn_QuickAddEmployer(WebDriver driver) {
+		Waitutil.waituntilclickabale(driver,
+				"*[id^='claimOccupationListViewTag'][id$='_QuickAddButton']");
+		element = driver.findElement(By.cssSelector(
+				"*[id^='claimOccupationListViewTag'][id$='_QuickAddButton']"));
 		utility.Waitutil.implicitwait(driver);
 		return element;
 	}
@@ -178,15 +186,15 @@ public class ClaimIntake_page {
 	}
 
 	public static WebElement sel_OccupationCategory(WebDriver driver) {
-		Waitutil.waituntilclickabale(driver, "*[id^='OccupationDetailsWidget_'][id$='_JobStrenuous']");
-		element = driver.findElement(By.cssSelector("*[id^='OccupationDetailsWidget_'][id$='_JobStrenuous']"));
+		Waitutil.waituntilclickabale(driver, "*[id^='OccupationDetailsWidget'][id$='_JobStrenuous']");
+		element = driver.findElement(By.cssSelector("*[id^='OccupationDetailsWidget'][id$='_JobStrenuous']"));
 		utility.Waitutil.implicitwait(driver);
 		return element;
 	}
 
 	public static WebElement sel_Occupation(WebDriver driver) {
-		Waitutil.waituntilclickabale(driver, "*[id^='OccupationDetailsWidget_'][id$='_AltEmploymentCategory']");
-		element = driver.findElement(By.cssSelector("*[id^='OccupationDetailsWidget_'][id$='_AltEmploymentCategory']"));
+		Waitutil.waituntilclickabale(driver, "*[id^='OccupationDetailsWidget'][id$='_AltEmploymentCategory']");
+		element = driver.findElement(By.cssSelector("*[id^='OccupationDetailsWidget'][id$='_AltEmploymentCategory']"));
 		utility.Waitutil.implicitwait(driver);
 		return element;
 	}

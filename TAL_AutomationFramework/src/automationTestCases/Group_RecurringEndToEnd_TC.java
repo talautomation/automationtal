@@ -168,9 +168,9 @@ public class Group_RecurringEndToEnd_TC {
 		}
 
 		Select prefContMet = new Select(ClaimIntake_page.sel_PreferredContactMethod(chiefdriver));
-		if ((prefContMet.getFirstSelectedOption().getText()).equals("Unknown")) {
-			prefContMet.selectByValue("3");
-		}
+		//if ((prefContMet.getFirstSelectedOption().getText()).equals("Unknown")) {
+			prefContMet.selectByValue("2");
+		//}
 		Thread.sleep(4000);
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 		Thread.sleep(2000);
@@ -209,7 +209,7 @@ public class Group_RecurringEndToEnd_TC {
 
 		List<WebElement> allDivisions = ClaimIntake_page.tbl_Divisions(chiefdriver)
 				.findElements(By.cssSelector("tbody > tr"));
-		Selecting_RightElement.Select(chiefdriver, "Personal", allDivisions, 0);
+		Selecting_RightElement.Select(chiefdriver, "Employer", allDivisions, 0);
 
 		List<WebElement> allClasses = ClaimIntake_page.tbl_Classes(chiefdriver)
 				.findElements(By.cssSelector("tbody > tr"));
@@ -242,6 +242,9 @@ public class Group_RecurringEndToEnd_TC {
 		occupation.selectByValue("18");
 		Select occupationCategory = new Select(ClaimIntake_page.sel_OccupationCategory(chiefdriver));
 		occupationCategory.selectByValue("2");
+		Thread.sleep(3000);
+		//ClaimIntake_page.btn_QuickAddEmployer(chiefdriver).click();
+		Thread.sleep(3000);
 
 		// Earning Details
 		Select EarningType = new Select(ClaimIntake_page.sel_EarningType(chiefdriver));
@@ -259,10 +262,10 @@ public class Group_RecurringEndToEnd_TC {
 
 		// Medical Details Page
 		// Add a Medical Provider
-		ClaimIntake_page.btn_AddMedicalProvider(chiefdriver).click();
-		ClaimIntake_page.txt_LastName(chiefdriver).sendKeys("ph");
-		ClaimIntake_page.btn_Search(chiefdriver).click();
-		ClaimIntake_page.btn_Select(chiefdriver).click();
+		//ClaimIntake_page.btn_AddMedicalProvider(chiefdriver).click();
+		//ClaimIntake_page.txt_LastName(chiefdriver).sendKeys("ph");
+		//ClaimIntake_page.btn_Search(chiefdriver).click();
+		//ClaimIntake_page.btn_Select(chiefdriver).click();
 		Thread.sleep(1000);
 		// Input Medical Code
 		ClaimIntake_page.txt_DiagnosisCode(chiefdriver).sendKeys("eye");
@@ -355,17 +358,17 @@ public class Group_RecurringEndToEnd_TC {
 				.findElements(By.cssSelector("tbody > tr"));
 		FindRightElement.SelectRightElement(chiefdriver, "Open - In Review", StepOpenInReviewClaim);
 		Claim_Benefit_page.btn_Ok(chiefdriver).click();
-		List<WebElement> StepNoAutomatedTelephony = Claim_Benefit_page.tbl_ChooseNextStep(chiefdriver)
-				.findElements(By.cssSelector("tbody > tr"));
-		FindRightElement.SelectRightElement(chiefdriver, "NO - Do not issue the Automated Initial Notification Pack.",
-				StepNoAutomatedTelephony);
-		Claim_Benefit_page.btn_Ok(chiefdriver).click();
+		//List<WebElement> StepNoAutomatedTelephony = Claim_Benefit_page.tbl_ChooseNextStep(chiefdriver)
+			//	.findElements(By.cssSelector("tbody > tr"));
+		//FindRightElement.SelectRightElement(chiefdriver, "NO - Do not issue the Automated Initial Notification Pack.",
+			//	StepNoAutomatedTelephony);
+		//Claim_Benefit_page.btn_Ok(chiefdriver).click();
 
 		// Close Create Initial Notification Pack
-		List<WebElement> TaskCreateInitialNotificationTask = Tab_Tasks_Claim_page.tbl_TasksList(chiefdriver)
-				.findElements(By.cssSelector("tbody > tr"));
-		Closing_Right_Task.SelectRightTask(chiefdriver, "Create Initial Notification Pack",
-				TaskCreateInitialNotificationTask, 2);
+		//List<WebElement> TaskCreateInitialNotificationTask = Tab_Tasks_Claim_page.tbl_TasksList(chiefdriver)
+			//	.findElements(By.cssSelector("tbody > tr"));
+		//Closing_Right_Task.SelectRightTask(chiefdriver, "Create Initial Notification Pack",
+			//	TaskCreateInitialNotificationTask, 2);
 
 		// Navigate to Coverages tab and Create Benefit
 		Tab_Coverages_page.tab_CoveragesTab(chiefdriver).click();

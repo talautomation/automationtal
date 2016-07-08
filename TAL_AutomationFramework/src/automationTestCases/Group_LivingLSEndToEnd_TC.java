@@ -217,7 +217,7 @@ public class Group_LivingLSEndToEnd_TC {
 
 		List<WebElement> allClasses = ClaimIntake_page.tbl_Classes(chiefdriver)
 				.findElements(By.cssSelector("tbody > tr"));
-		Selecting_RightElement.Select(chiefdriver, "TPD", allClasses, 1);
+		Selecting_RightElement.Select(chiefdriver, "TPD", allClasses, 3);
 		ClaimIntake_page.btn_LinkDivsionClass(chiefdriver).click();
 
 		Thread.sleep(3000);
@@ -250,6 +250,8 @@ public class Group_LivingLSEndToEnd_TC {
 		occupation.selectByValue("18");
 		Select occupationCategory = new Select(ClaimIntake_page.sel_OccupationCategory(chiefdriver));
 		occupationCategory.selectByValue("2");
+		Thread.sleep(3000);
+		//ClaimIntake_page.btn_QuickAddEmployer(chiefdriver).click();
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
 
 		// Other Income
@@ -337,17 +339,17 @@ public class Group_LivingLSEndToEnd_TC {
 				.findElements(By.cssSelector("tbody > tr"));
 		FindRightElement.SelectRightElement(chiefdriver, "Open - In Review", StepOpenInReviewClaim);
 		Claim_Benefit_page.btn_Ok(chiefdriver).click();
-		List<WebElement> StepNoAutomatedTelephony = Claim_Benefit_page.tbl_ChooseNextStep(chiefdriver)
-				.findElements(By.cssSelector("tbody > tr"));
-		FindRightElement.SelectRightElement(chiefdriver, "NO - Do not issue the Automated Initial Notification Pack.",
-				StepNoAutomatedTelephony);
-		Claim_Benefit_page.btn_Ok(chiefdriver).click();
+		//List<WebElement> StepNoAutomatedTelephony = Claim_Benefit_page.tbl_ChooseNextStep(chiefdriver)
+			//	.findElements(By.cssSelector("tbody > tr"));
+		//FindRightElement.SelectRightElement(chiefdriver, "NO - Do not issue the Automated Initial Notification Pack.",
+			//	StepNoAutomatedTelephony);
+		//Claim_Benefit_page.btn_Ok(chiefdriver).click();
 
 		// Close Create Initial Notification Pack
-		List<WebElement> TaskCreateInitialNotificationTask = Tab_Tasks_Claim_page.tbl_TasksList(chiefdriver)
-				.findElements(By.cssSelector("tbody > tr"));
-		Closing_Right_Task.SelectRightTask(chiefdriver, "Create Initial Notification Pack",
-				TaskCreateInitialNotificationTask, 2);
+		//List<WebElement> TaskCreateInitialNotificationTask = Tab_Tasks_Claim_page.tbl_TasksList(chiefdriver)
+			//	.findElements(By.cssSelector("tbody > tr"));
+		//Closing_Right_Task.SelectRightTask(chiefdriver, "Create Initial Notification Pack",
+			//	TaskCreateInitialNotificationTask, 2);
 
 		// Navigate to Coverages tab and Create Benefit
 		Tab_Coverages_page.tab_CoveragesTab(chiefdriver).click();
@@ -391,8 +393,8 @@ public class Group_LivingLSEndToEnd_TC {
 		// Navigate to Lump Sum Payments tab and Add
 		Tab_LumpSumPayments_Benefit_page.tab_LumpSumPayments(chiefdriver).click();
 		Tab_LumpSumPayments_Benefit_page.btn_AddPayments(chiefdriver).click();
-		Tab_LumpSumPayments_Benefit_page.btn_SearchPayee(chiefdriver).click();
-		Tab_LumpSumPayments_Benefit_page.btn_AddPayee(chiefdriver).click();
+		//Tab_LumpSumPayments_Benefit_page.btn_SearchPayee(chiefdriver).click();
+		//Tab_LumpSumPayments_Benefit_page.btn_AddPayee(chiefdriver).click();
 		// List<WebElement> availablePayeeTypes =
 		// Tab_LumpSumPayments_page.tbl_AvailablePayeeRoles(chiefdriver).findElements(By.cssSelector("tbody
 		// > tr"));
@@ -400,14 +402,14 @@ public class Group_LivingLSEndToEnd_TC {
 		// availablePayeeTypes, 0);
 		// Tab_LumpSumPayments_page.btn_OKPayeeRoleSelection(chiefdriver).click();
 		// Tab_LumpSumPayments_page.txt_FirstName(chiefdriver).sendKeys(arg0);
-		Tab_LumpSumPayments_Benefit_page.txt_LastName(chiefdriver).sendKeys("sm");
-		Tab_LumpSumPayments_Benefit_page.btn_Search(chiefdriver).click();
-		Tab_LumpSumPayments_Benefit_page.btn_Select(chiefdriver).click();
+		//Tab_LumpSumPayments_Benefit_page.txt_LastName(chiefdriver).sendKeys("sm");
+		//Tab_LumpSumPayments_Benefit_page.btn_Search(chiefdriver).click();
+		//Tab_LumpSumPayments_Benefit_page.btn_Select(chiefdriver).click();
 		// List<WebElement> Payees =
 		// Tab_LumpSumPayments_page.tbl_Payees(chiefdriver).findElements(By.cssSelector("tbody
 		// > tr"));
 		// Selecting_RightElement.Select(chiefdriver, "Payee", Payees, 1);
-		Tab_LumpSumPayments_Benefit_page.btn_Select(chiefdriver).click();
+		//Tab_LumpSumPayments_Benefit_page.btn_Select(chiefdriver).click();
 		Select description = new Select(Tab_LumpSumPayments_Benefit_page.sel_Description(chiefdriver));
 		description.selectByVisibleText("Benefit Payment");
 		Tab_LumpSumPayments_Benefit_page.txt_BasicPayeeAmount(chiefdriver).clear();

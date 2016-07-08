@@ -186,7 +186,7 @@ public class Group_DeathEndToEnd_TC {
 
 		List<WebElement> allClasses = ClaimIntake_page.tbl_Classes(chiefdriver)
 				.findElements(By.cssSelector("tbody > tr"));
-		Selecting_RightElement.Select(chiefdriver, "Death", allClasses, 1);
+		Selecting_RightElement.Select(chiefdriver, "Death", allClasses, 3);
 		ClaimIntake_page.btn_LinkDivsionClass(chiefdriver).click();
 
 		Thread.sleep(3000);
@@ -355,8 +355,8 @@ public class Group_DeathEndToEnd_TC {
 		// Navigate to Lump Sum Payments tab and Add
 		Tab_LumpSumPayments_Benefit_page.tab_LumpSumPayments(chiefdriver).click();
 		Tab_LumpSumPayments_Benefit_page.btn_AddPayments(chiefdriver).click();
-		Tab_LumpSumPayments_Benefit_page.btn_SearchPayee(chiefdriver).click();
-		Tab_LumpSumPayments_Benefit_page.btn_AddPayee(chiefdriver).click();
+		//Tab_LumpSumPayments_Benefit_page.btn_SearchPayee(chiefdriver).click();
+		//Tab_LumpSumPayments_Benefit_page.btn_AddPayee(chiefdriver).click();
 		// List<WebElement> availablePayeeTypes =
 		// Tab_LumpSumPayments_page.tbl_AvailablePayeeRoles(chiefdriver).findElements(By.cssSelector("tbody
 		// > tr"));
@@ -364,14 +364,14 @@ public class Group_DeathEndToEnd_TC {
 		// availablePayeeTypes, 0);
 		// Tab_LumpSumPayments_page.btn_OKPayeeRoleSelection(chiefdriver).click();
 		// Tab_LumpSumPayments_page.txt_FirstName(chiefdriver).sendKeys(arg0);
-		Tab_LumpSumPayments_Benefit_page.txt_LastName(chiefdriver).sendKeys("sm");
-		Tab_LumpSumPayments_Benefit_page.btn_Search(chiefdriver).click();
-		Tab_LumpSumPayments_Benefit_page.btn_Select(chiefdriver).click();
+		//Tab_LumpSumPayments_Benefit_page.txt_LastName(chiefdriver).sendKeys("sm");
+		//Tab_LumpSumPayments_Benefit_page.btn_Search(chiefdriver).click();
+		//Tab_LumpSumPayments_Benefit_page.btn_Select(chiefdriver).click();
 		// List<WebElement> Payees =
 		// Tab_LumpSumPayments_page.tbl_Payees(chiefdriver).findElements(By.cssSelector("tbody
 		// > tr"));
 		// Selecting_RightElement.Select(chiefdriver, "Payee", Payees, 1);
-		Tab_LumpSumPayments_Benefit_page.btn_Select(chiefdriver).click();
+		//Tab_LumpSumPayments_Benefit_page.btn_Select(chiefdriver).click();
 		Select description = new Select(Tab_LumpSumPayments_Benefit_page.sel_Description(chiefdriver));
 		description.selectByVisibleText("Benefit Payment");
 		Tab_LumpSumPayments_Benefit_page.txt_BasicPayeeAmount(chiefdriver).clear();
