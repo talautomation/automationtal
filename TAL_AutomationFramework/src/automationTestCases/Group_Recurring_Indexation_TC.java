@@ -259,6 +259,7 @@ public class Group_Recurring_Indexation_TC {
 
 		// Other Income
 		ClaimIntake_page.btn_ClaimIntakeNextButton(chiefdriver).click();
+		Thread.sleep(5000);
 
 		// Medical Details Page
 		// Add a Medical Provider

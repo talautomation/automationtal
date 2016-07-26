@@ -302,17 +302,17 @@ public class Group_DeathEndToEnd_TC {
 				.findElements(By.cssSelector("tbody > tr"));
 		Closing_Right_Task.SelectRightTask(chiefdriver, "Initial Claim Assessment - TeleClaim",
 				TaskInitialClaimAssessment, 2);
-		List<WebElement> StepNoAutomatedTelephony = Claim_Benefit_page.tbl_ChooseNextStep(chiefdriver)
-				.findElements(By.cssSelector("tbody > tr"));
-		FindRightElement.SelectRightElement(chiefdriver,
-				"NO - Do not issue the Automated Telephony Initial Notification Pack.", StepNoAutomatedTelephony);
-		Claim_Benefit_page.btn_Ok(chiefdriver).click();
+		//List<WebElement> StepNoAutomatedTelephony = Claim_Benefit_page.tbl_ChooseNextStep(chiefdriver)
+			//	.findElements(By.cssSelector("tbody > tr"));
+		//FindRightElement.SelectRightElement(chiefdriver,
+			//	"NO - Do not issue the Automated Telephony Initial Notification Pack.", StepNoAutomatedTelephony);
+		//Claim_Benefit_page.btn_Ok(chiefdriver).click();
 
 		// Close Create Initial Notification Pack
-		List<WebElement> TaskCreateInitialNotificationTask = Tab_Tasks_Claim_page.tbl_TasksList(chiefdriver)
-				.findElements(By.cssSelector("tbody > tr"));
-		Closing_Right_Task.SelectRightTask(chiefdriver, "Create Initial Notification Pack",
-				TaskCreateInitialNotificationTask, 2);
+		//List<WebElement> TaskCreateInitialNotificationTask = Tab_Tasks_Claim_page.tbl_TasksList(chiefdriver)
+			//	.findElements(By.cssSelector("tbody > tr"));
+		//Closing_Right_Task.SelectRightTask(chiefdriver, "Create Initial Notification Pack",
+			//	TaskCreateInitialNotificationTask, 2);
 
 		// Navigate to Coverages tab and Create Benefit
 		Tab_Coverages_page.tab_CoveragesTab(chiefdriver).click();
@@ -340,7 +340,7 @@ public class Group_DeathEndToEnd_TC {
 		System.out.println("Benefit Number is: " + BenefitNumber);
 
 		// Suppress Validations
-		appModule.Suppress_Validations.SupressValidations(chiefdriver);
+		//appModule.Suppress_Validations.SupressValidations(chiefdriver);
 
 		// Admit the Benefit
 		Claim_Benefit_page.btn_MoveToNextStatus(chiefdriver).click();

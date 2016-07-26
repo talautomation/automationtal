@@ -168,9 +168,9 @@ public class Direct_LivingLS_Overpayment_TC {
 		}
 
 		Select prefContMet = new Select(ClaimIntake_page.sel_PreferredContactMethod(chiefdriver));
-		if ((prefContMet.getFirstSelectedOption().getText()).equals("Unknown")) {
-			prefContMet.selectByValue("4");
-		}
+		//if ((prefContMet.getFirstSelectedOption().getText()).equals("Unknown")) {
+			prefContMet.selectByValue("2");
+		//}
 
 		Thread.sleep(2000);
 
