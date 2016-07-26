@@ -288,14 +288,14 @@ public class Group_DeathEndToEnd_TC {
 
 		// Move claim to Open-TeleClaim
 		// Close Review Claim Notification task
-		List<WebElement> TaskReviewNewClaimNotification = Tab_Tasks_Claim_page.tbl_TasksList(chiefdriver)
-				.findElements(By.cssSelector("tbody > tr"));
-		Closing_Right_Task.SelectRightTask(chiefdriver, "Review New Claim Notification", TaskReviewNewClaimNotification,
-				2);
-		List<WebElement> StepOpenTeleClaim = Claim_Benefit_page.tbl_ChooseNextStep(chiefdriver)
-				.findElements(By.cssSelector("tbody > tr"));
-		FindRightElement.SelectRightElement(chiefdriver, "Open - TeleClaim", StepOpenTeleClaim);
-		Claim_Benefit_page.btn_Ok(chiefdriver).click();
+		//List<WebElement> TaskReviewNewClaimNotification = Tab_Tasks_Claim_page.tbl_TasksList(chiefdriver)
+			//	.findElements(By.cssSelector("tbody > tr"));
+		//Closing_Right_Task.SelectRightTask(chiefdriver, "Review New Claim Notification", TaskReviewNewClaimNotification,
+			//	2);
+		//List<WebElement> StepOpenTeleClaim = Claim_Benefit_page.tbl_ChooseNextStep(chiefdriver)
+			//	.findElements(By.cssSelector("tbody > tr"));
+		//FindRightElement.SelectRightElement(chiefdriver, "Open - TeleClaim", StepOpenTeleClaim);
+		//Claim_Benefit_page.btn_Ok(chiefdriver).click();
 
 		// Close Initial Claim Assessment-Teleclaim task
 		//List<WebElement> TaskInitialClaimAssessment = Tab_Tasks_Claim_page.tbl_TasksList(chiefdriver)
@@ -313,7 +313,15 @@ public class Group_DeathEndToEnd_TC {
 			//	.findElements(By.cssSelector("tbody > tr"));
 		//Closing_Right_Task.SelectRightTask(chiefdriver, "Create Initial Notification Pack",
 			//	TaskCreateInitialNotificationTask, 2);
-
+		List<WebElement> TaskReviewNewClaimNotification = Tab_Tasks_Claim_page.tbl_TasksList(chiefdriver)
+				.findElements(By.cssSelector("tbody > tr"));
+		Closing_Right_Task.SelectRightTask(chiefdriver, "Review New Claim Notification", TaskReviewNewClaimNotification,
+				2);
+		List<WebElement> StepOpenInReviewClaim = Claim_Benefit_page.tbl_ChooseNextStep(chiefdriver)
+				.findElements(By.cssSelector("tbody > tr"));
+		FindRightElement.SelectRightElement(chiefdriver, "Open - In Review", StepOpenInReviewClaim);
+		Claim_Benefit_page.btn_Ok(chiefdriver).click();
+		
 		// Navigate to Coverages tab and Create Benefit
 		Tab_Coverages_page.tab_CoveragesTab(chiefdriver).click();
 		List<WebElement> allBenefitRights = Tab_Coverages_page.tbl_BenefitRights(chiefdriver)
@@ -411,7 +419,7 @@ public class Group_DeathEndToEnd_TC {
 		List<WebElement> RemainingBenefitTasks = Tab_Tasks_Benefit_page.tbl_TasksList(sysadmindriver)
 				.findElements(By.cssSelector("tbody > tr"));
 		appModule.Closing_AllElements.Close(sysadmindriver, RemainingBenefitTasks);
-
+		
 		// Move the Benefit to Paid Status
 		Claim_Benefit_page.btn_MoveToNextStatus(sysadmindriver).click();
 		List<WebElement> StepPaidBenefit = Claim_Benefit_page.tbl_ChooseNextStep(sysadmindriver)
