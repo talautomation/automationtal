@@ -298,10 +298,10 @@ public class Group_DeathEndToEnd_TC {
 		Claim_Benefit_page.btn_Ok(chiefdriver).click();
 
 		// Close Initial Claim Assessment-Teleclaim task
-		List<WebElement> TaskInitialClaimAssessment = Tab_Tasks_Claim_page.tbl_TasksList(chiefdriver)
-				.findElements(By.cssSelector("tbody > tr"));
-		Closing_Right_Task.SelectRightTask(chiefdriver, "Initial Claim Assessment - TeleClaim",
-				TaskInitialClaimAssessment, 2);
+		//List<WebElement> TaskInitialClaimAssessment = Tab_Tasks_Claim_page.tbl_TasksList(chiefdriver)
+			//	.findElements(By.cssSelector("tbody > tr"));
+		//Closing_Right_Task.SelectRightTask(chiefdriver, "Initial Claim Assessment - TeleClaim",
+			//	TaskInitialClaimAssessment, 2);
 		//List<WebElement> StepNoAutomatedTelephony = Claim_Benefit_page.tbl_ChooseNextStep(chiefdriver)
 			//	.findElements(By.cssSelector("tbody > tr"));
 		//FindRightElement.SelectRightElement(chiefdriver,
